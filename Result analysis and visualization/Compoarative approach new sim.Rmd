@@ -1,52 +1,69 @@
 ---
-title: Comparative approach of creating time series
-date: 
-author: Md Touhidul Islam
-output: 
+title: "Comparative Approach: Similarity-Based Method for Time Series Analysis"
+date: "November 2024"
+author: "Md Touhidul Islam"
+
 ---
 
 ```{r, echo=FALSE, message=FALSE, results='hide', cache=T}
+# Set locale for consistent date formatting
 Sys.setlocale("LC_TIME", "en_US.UTF-8")
 
-library(dplyr) #dplyr_1.0.3
-library(ggplot2) #ggplot2_3.3.2
-library(ggpubr) #ggpubr_0.4.0
-library(readxl) #readxl_1.3.1
-library(zoo) #zoo_1.8-8
-library(DCCA) #DCCA_0.1.1 
-library(sandwich) #sandwich_3.0-1
-library(tseries) #tseries_0.10-47
-library(lmtest) #lmtest_0.9-38 
-library(knitr) #knitr_1.30
-library(psych) #psych_2.1.6
-options(scipen = 10)
+# Load required libraries for analysis
+library(dplyr)    # For data manipulation
+library(ggplot2)  # For visualization
+library(ggpubr)   # For publication-ready plots
+library(readxl)   # For reading Excel files
+library(zoo)      # For time series smoothing
+library(DCCA)     # For detrended cross-correlation analysis
+library(sandwich) # For robust standard errors
+library(tseries)  # For time series tests
+library(lmtest)   # For regression diagnostic tests
+library(knitr)    # For report generation
+library(psych)    # For psychological data analysis
+options(scipen = 10)  # Avoid scientific notation in output
 
+# Load custom functions from Functions.R
 source("Functions.R")
+# Set number of permutations for statistical tests
 R <- 10000
+# Initialize results dataframe
 corrsdf <- NULL
 ```
 
-#Import Yougov result from excel sheet
+# Import YouGov result from excel sheet
 
 ```{r}
+# Load YouGov survey data
 Yougovdf <- read_excel("yougovoutput.xlsx", sheet="yougovoutput")
+# Standardize date column name
 names(Yougovdf)[1] <- "day"
 ```
 
-#Import Bert trained models
+# Import BERT models with similarity approach
 
 ```{r}
+# Set model parameters
+epoch <- 2
+model_name = "Similarity"  # Using similarity-based approach
 
-epoch<-2
-model_name = "Similarity"
-#filename<-getfilename(epoch, query_type,similarity)
-filename <-"Result/newpanx_mean.xlsx"
-berd <- read_excel(filename,sheet="transpose")
+# Use direct filename instead of generating it
+#filename <- getfilename(epoch, query_type, similarity)
+filename <- "Result/newpanx_mean.xlsx"
+
+# Load model output data
+berd <- read_excel(filename, sheet="transpose")
+# Standardize date column name
 names(berd)[1] <- "day"
+
+# Ensure date format consistency
 Yougovdf$day <- Yougovdf$day
 
+# Convert to Date format explicitly
 Yougovdf$day <- as.Date(Yougovdf$day)
 berd$day <- as.Date(berd$day)
+
+# Join datasets by matching dates
 joind = inner_join(Yougovdf, berd, by="day")
 ```
 

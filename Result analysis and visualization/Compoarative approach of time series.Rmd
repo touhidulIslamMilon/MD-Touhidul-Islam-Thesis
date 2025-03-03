@@ -1,51 +1,67 @@
 ---
-title: Comparative approach of creating time series
-date: 
-author: Md Touhidul Islam
-output: 
+title: "Comparative Approach: Time Series Creation and Analysis"
+date: "November 2024"
+author: "Md Touhidul Islam"
+
 ---
 
 ```{r, echo=FALSE, message=FALSE, results='hide', cache=T}
+# Set locale for consistent date formatting
 Sys.setlocale("LC_TIME", "en_US.UTF-8")
 
-library(dplyr) #dplyr_1.0.3
-library(ggplot2) #ggplot2_3.3.2
-library(ggpubr) #ggpubr_0.4.0
-library(readxl) #readxl_1.3.1
-library(zoo) #zoo_1.8-8
-library(DCCA) #DCCA_0.1.1 
-library(sandwich) #sandwich_3.0-1
-library(tseries) #tseries_0.10-47
-library(lmtest) #lmtest_0.9-38 
-library(knitr) #knitr_1.30
-library(psych) #psych_2.1.6
-options(scipen = 10)
+# Load required libraries for analysis
+library(dplyr)    # For data manipulation
+library(ggplot2)  # For visualization
+library(ggpubr)   # For publication-ready plots
+library(readxl)   # For reading Excel files
+library(zoo)      # For time series analysis
+library(DCCA)     # For detrended cross-correlation analysis
+library(sandwich) # For robust standard errors
+library(tseries)  # For time series tests
+library(lmtest)   # For regression diagnostic tests
+library(knitr)    # For report generation
+library(psych)    # For psychological data analysis
+options(scipen = 10)  # Avoid scientific notation in output
 
+# Load custom functions from Functions.R
 source("Functions.R")
+# Set number of permutations for tests
 R <- 10000
+# Initialize results dataframe
 corrsdf <- NULL
 ```
 
-#Import Yougov result from excel sheet
+# Import YouGov result from excel sheet
 
 ```{r}
+# Import YouGov survey data from Excel
+# Note: Previously downloaded from YouGov API
 #download.file("https://yougov.co.uk/_pubapis/v5/uk/trackers/britains-mood-measured-weekly/download/", destfile="YouGov/britains-mood-measured-weekly.xlsx")
 Yougovdf <- read_excel("yougovoutput.xlsx", sheet="yougovoutput")
+# Rename first column to standardize date column name
 names(Yougovdf)[1] <- "day"
 ```
 
-#Import Bert trained models
+# Import BERT trained models
 
 ```{r}
+# Set parameters for file generation
+epoch <- 2           # Epoch number
+query_type <- "Single"  # Query type
+similarity <- "Sim"     # Similarity measure
 
-epoch<-2
-query_type<-"Single"
-similarity<-"Sim"
-filename<-getfilename(epoch, query_type,similarity)
-#filename <-"Result/baseline_same_model.xlsx"
-berd <- read_excel(filename,sheet="transpose")
+# Get standardized filename
+filename <- getfilename(epoch, query_type, similarity)
+# Alternative hardcoded filename if needed
+#filename <- "Result/baseline_same_model.xlsx"
+
+# Import BERT model outputs
+berd <- read_excel(filename, sheet="transpose")
+# Rename first column to match YouGov data
 names(berd)[1] <- "day"
+# Ensure date format consistency
 Yougovdf$day <- Yougovdf$day
+# Join datasets by date
 joind = inner_join(Yougovdf, berd, by="day")
 ```
 
