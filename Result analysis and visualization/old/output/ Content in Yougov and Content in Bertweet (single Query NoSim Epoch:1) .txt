@@ -1,0 +1,71 @@
+[1] "Content in Yougov and Content in Bertweet (single Query NoSim Epoch:1)"
+
+t test of coefficients:
+
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.022034   0.038492  0.5724   0.5681    
+X           0.021226   0.043216  0.4912   0.6242    
+lag(Y, 1)   0.891942   0.037824 23.5813   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.958
+[1] -0.08575007
+[1] "DCCA:"
+[1] 0.7703
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.022034   0.038492  0.5724   0.5681    
+X           0.021226   0.043216  0.4912   0.6242    
+lag(Y, 1)   0.891942   0.037824 23.5813   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.958
+[1] "Lagged model:"
+
+t test of coefficients:
+
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.022034   0.038492  0.5724   0.5681    
+X           0.021226   0.043216  0.4912   0.6242    
+lag(Y, 1)   0.891942   0.037824 23.5813   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.087872, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Content in Yougov and Content in Bertweet (single Query NoSim Epoch:1) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.06565196
+[1] "scaled: "
+[1] 2.662861
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.050381 -0.017508  0.001904  0.017557  0.054773 
+
+Coefficients:
+               Estimate  Std. Error t value  Pr(>|t|)    
+(Intercept)     0.31610     0.01511  20.923   < 2e-16 ***
+Y           -7235.71763  1771.66930  -4.084 0.0000781 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.0238 on 126 degrees of freedom
+Multiple R-squared:  0.1169,	Adjusted R-squared:  0.1099 
+F-statistic: 16.68 on 1 and 126 DF,  p-value: 0.00007812
+

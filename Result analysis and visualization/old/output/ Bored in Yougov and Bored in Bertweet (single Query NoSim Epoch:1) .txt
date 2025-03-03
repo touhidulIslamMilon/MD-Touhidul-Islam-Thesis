@@ -1,0 +1,71 @@
+[1] "Bored in Yougov and Bored in Bertweet (single Query NoSim Epoch:1)"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.022450   0.057963 -0.3873   0.6993    
+X            0.038461   0.057772  0.6657   0.5070    
+lag(Y, 1)    0.780600   0.059232 13.1786   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.666
+[1] 0.2479137
+[1] "DCCA:"
+[1] 0.0334
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.022450   0.057963 -0.3873   0.6993    
+X            0.038461   0.057772  0.6657   0.5070    
+lag(Y, 1)    0.780600   0.059232 13.1786   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.666
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.022450   0.057963 -0.3873   0.6993    
+X            0.038461   0.057772  0.6657   0.5070    
+lag(Y, 1)    0.780600   0.059232 13.1786   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.036092, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Bored in Yougov and Bored in Bertweet (single Query NoSim Epoch:1) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.05413195
+[1] "scaled: "
+[1] 1.3961
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.07313 -0.04202 -0.01329  0.01662  0.19072 
+
+Coefficients:
+               Estimate  Std. Error t value Pr(>|t|)   
+(Intercept)     0.10692     0.03697   2.892  0.00462 **
+Y           68587.43617 21333.41441   3.215  0.00172 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.05938 on 108 degrees of freedom
+Multiple R-squared:  0.08735,	Adjusted R-squared:  0.0789 
+F-statistic: 10.34 on 1 and 108 DF,  p-value: 0.001721
+

@@ -1,0 +1,71 @@
+[1] "Optimistic in Yougov and Optimistic in Bertweet (single Query NoSim Epoch:3)"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.002486   0.046456  0.0535   0.9574    
+X           -0.034424   0.039187 -0.8785   0.3813    
+lag(Y, 1)    0.864285   0.068965 12.5322   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.0139
+[1] 0.06945725
+[1] "DCCA:"
+[1] 0.2648
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.002486   0.046456  0.0535   0.9574    
+X           -0.034424   0.039187 -0.8785   0.3813    
+lag(Y, 1)    0.864285   0.068965 12.5322   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.0139
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.002486   0.046456  0.0535   0.9574    
+X           -0.034424   0.039187 -0.8785   0.3813    
+lag(Y, 1)    0.864285   0.068965 12.5322   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.049952, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Optimistic in Yougov and Optimistic in Bertweet (single Query NoSim Epoch:3) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.03979546
+[1] "scaled: "
+[1] 2.374476
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.073836 -0.018735  0.000264  0.019683  0.068000 
+
+Coefficients:
+                Estimate   Std. Error t value Pr(>|t|)    
+(Intercept)      0.22231      0.01112  19.994   <2e-16 ***
+Y           -12138.40821   5281.20841  -2.298   0.0231 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.02854 on 132 degrees of freedom
+Multiple R-squared:  0.03848,	Adjusted R-squared:  0.0312 
+F-statistic: 5.283 on 1 and 132 DF,  p-value: 0.02311
+

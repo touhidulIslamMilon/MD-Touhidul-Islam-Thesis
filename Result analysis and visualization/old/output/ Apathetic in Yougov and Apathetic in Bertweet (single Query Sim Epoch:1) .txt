@@ -1,0 +1,45 @@
+[1] "Apathetic in Yougov and Apathetic in Bertweet (single Query Sim Epoch:1)"
+
+t test of coefficients:
+
+             Estimate Std. Error t value          Pr(>|t|)    
+(Intercept) -0.060217   0.090948 -0.6621            0.5130    
+X            0.094674   0.071120  1.3312            0.1932    
+lag(Y, 1)    0.967641   0.089494 10.8124 0.000000000007196 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.9988
+[1] -0.348213
+[1] "DCCA:"
+[1] 0.9482
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value          Pr(>|t|)    
+(Intercept) -0.060217   0.090948 -0.6621            0.5130    
+X            0.094674   0.071120  1.3312            0.1932    
+lag(Y, 1)    0.967641   0.089494 10.8124 0.000000000007196 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.9988
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value          Pr(>|t|)    
+(Intercept) -0.060217   0.090948 -0.6621            0.5130    
+X            0.094674   0.071120  1.3312            0.1932    
+lag(Y, 1)    0.967641   0.089494 10.8124 0.000000000007196 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.2574, Truncation lag parameter = 3, p-value = 0.1
+

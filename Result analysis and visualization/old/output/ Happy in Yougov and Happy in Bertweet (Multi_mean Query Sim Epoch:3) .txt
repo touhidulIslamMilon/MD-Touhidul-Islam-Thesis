@@ -1,0 +1,45 @@
+[1] "Happy in Yougov and Happy in Bertweet (Multi_mean Query Sim Epoch:3)"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.040475   0.038662  1.0469  0.29981    
+X           -0.052383   0.029070 -1.8020  0.07713 .  
+lag(Y, 1)    0.936324   0.034039 27.5072  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 1
+[1] -0.08516327
+[1] "DCCA:"
+[1] 0.6603
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.040475   0.038662  1.0469  0.29981    
+X           -0.052383   0.029070 -1.8020  0.07713 .  
+lag(Y, 1)    0.936324   0.034039 27.5072  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 1
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.040475   0.038662  1.0469  0.29981    
+X           -0.052383   0.029070 -1.8020  0.07713 .  
+lag(Y, 1)    0.936324   0.034039 27.5072  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.090661, Truncation lag parameter = 3, p-value = 0.1
+

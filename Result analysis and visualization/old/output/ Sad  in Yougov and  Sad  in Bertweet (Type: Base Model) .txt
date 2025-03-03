@@ -1,0 +1,71 @@
+[1] "Sad  in Yougov and  Sad  in Bertweet (Type: Base Model)"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0092619  0.0318613  0.2907   0.7716    
+X           0.0234946  0.0335086  0.7012   0.4842    
+lag(Y, 1)   0.9279076  0.0329093 28.1959   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.603
+[1] -0.07045883
+[1] "DCCA:"
+[1] 0.7603
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0092619  0.0318613  0.2907   0.7716    
+X           0.0234946  0.0335086  0.7012   0.4842    
+lag(Y, 1)   0.9279076  0.0329093 28.1959   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.603
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0092619  0.0318613  0.2907   0.7716    
+X           0.0234946  0.0335086  0.7012   0.4842    
+lag(Y, 1)   0.9279076  0.0329093 28.1959   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.23035, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Sad  in Yougov and  Sad  in Bertweet (Type: Base Model) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.068173
+[1] "scaled: "
+[1] 2.386365
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.068434 -0.015579 -0.003401  0.010184  0.106160 
+
+Coefficients:
+               Estimate  Std. Error t value Pr(>|t|)    
+(Intercept)     0.28359     0.00903  31.404  < 2e-16 ***
+Y           -1309.06724   486.17322  -2.693  0.00778 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.02553 on 174 degrees of freedom
+Multiple R-squared:   0.04,	Adjusted R-squared:  0.03448 
+F-statistic:  7.25 on 1 and 174 DF,  p-value: 0.007783
+

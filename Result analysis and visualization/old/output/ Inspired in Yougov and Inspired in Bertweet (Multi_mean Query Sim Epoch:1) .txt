@@ -1,0 +1,71 @@
+[1] "Inspired in Yougov and Inspired in Bertweet (Multi_mean Query Sim Epoch:1)"
+
+t test of coefficients:
+
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.017460   0.027737  0.6295   0.5300    
+X           0.024343   0.029138  0.8354   0.4048    
+lag(Y, 1)   0.941964   0.027329 34.4675   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.0648
+[1] 0.08328031
+[1] "DCCA:"
+[1] 0.2308
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.017460   0.027737  0.6295   0.5300    
+X           0.024343   0.029138  0.8354   0.4048    
+lag(Y, 1)   0.941964   0.027329 34.4675   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.0648
+[1] "Lagged model:"
+
+t test of coefficients:
+
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.017460   0.027737  0.6295   0.5300    
+X           0.024343   0.029138  0.8354   0.4048    
+lag(Y, 1)   0.941964   0.027329 34.4675   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.065132, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Inspired in Yougov and Inspired in Bertweet (Multi_mean Query Sim Epoch:1) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.008061688
+[1] "scaled: "
+[1] 2.525443
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+       Min         1Q     Median         3Q        Max 
+-0.0211764 -0.0074467  0.0007092  0.0066547  0.0262859 
+
+Coefficients:
+                 Estimate    Std. Error t value Pr(>|t|)    
+(Intercept)      0.102938      0.004114  25.020  < 2e-16 ***
+Y           -15871.692920   4601.503673  -3.449  0.00073 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.01091 on 150 degrees of freedom
+Multiple R-squared:  0.07349,	Adjusted R-squared:  0.06731 
+F-statistic:  11.9 on 1 and 150 DF,  p-value: 0.0007301
+

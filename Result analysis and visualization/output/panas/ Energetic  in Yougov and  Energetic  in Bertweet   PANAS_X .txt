@@ -1,0 +1,71 @@
+[1] "Energetic  in Yougov and  Energetic  in Bertweet   PANAS_X"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0091674  0.0458023  0.2002  0.84171    
+X           0.0885828  0.0445370  1.9890  0.04902 *  
+lag(Y, 1)   0.8731371  0.0372441 23.4436  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.0064
+[1] 0.06927293
+[1] "DCCA:"
+[1] 0.2789
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0091674  0.0458023  0.2002  0.84171    
+X           0.0885828  0.0445370  1.9890  0.04902 *  
+lag(Y, 1)   0.8731371  0.0372441 23.4436  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.0064
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0091674  0.0458023  0.2002  0.84171    
+X           0.0885828  0.0445370  1.9890  0.04902 *  
+lag(Y, 1)   0.8731371  0.0372441 23.4436  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.10083, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Energetic  in Yougov and  Energetic  in Bertweet   PANAS_X .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.01647176
+[1] "scaled: "
+[1] 1.994549
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.037368 -0.017183  0.002618  0.012748  0.032790 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   0.127848   0.009272   13.79   <2e-16 ***
+Y            -7.314525 121.041300   -0.06    0.952    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.01708 on 120 degrees of freedom
+Multiple R-squared:  3.043e-05,	Adjusted R-squared:  -0.008303 
+F-statistic: 0.003652 on 1 and 120 DF,  p-value: 0.9519
+

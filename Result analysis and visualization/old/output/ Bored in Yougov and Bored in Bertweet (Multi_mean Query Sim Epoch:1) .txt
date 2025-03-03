@@ -1,0 +1,71 @@
+[1] "Bored in Yougov and Bored in Bertweet (Multi_mean Query Sim Epoch:1)"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.022464   0.057924 -0.3878   0.6989    
+X            0.038890   0.057731  0.6736   0.5020    
+lag(Y, 1)    0.780724   0.059123 13.2050   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.6632
+[1] 0.2481694
+[1] "DCCA:"
+[1] 0.0335
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.022464   0.057924 -0.3878   0.6989    
+X            0.038890   0.057731  0.6736   0.5020    
+lag(Y, 1)    0.780724   0.059123 13.2050   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.6632
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.022464   0.057924 -0.3878   0.6989    
+X            0.038890   0.057731  0.6736   0.5020    
+lag(Y, 1)    0.780724   0.059123 13.2050   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.036275, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Bored in Yougov and Bored in Bertweet (Multi_mean Query Sim Epoch:1) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.05413247
+[1] "scaled: "
+[1] 1.393646
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.07314 -0.04200 -0.01325  0.01666  0.19062 
+
+Coefficients:
+                Estimate   Std. Error t value Pr(>|t|)   
+(Intercept)      0.10631      0.03699   2.874  0.00488 **
+Y           206037.73797  63792.96604   3.230  0.00164 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.05936 on 108 degrees of freedom
+Multiple R-squared:  0.08808,	Adjusted R-squared:  0.07964 
+F-statistic: 10.43 on 1 and 108 DF,  p-value: 0.001642
+

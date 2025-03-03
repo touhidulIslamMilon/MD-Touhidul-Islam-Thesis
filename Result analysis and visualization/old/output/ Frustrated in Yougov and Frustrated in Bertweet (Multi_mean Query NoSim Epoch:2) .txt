@@ -1,0 +1,45 @@
+[1] "Frustrated in Yougov and Frustrated in Bertweet (Multi_mean Query NoSim Epoch:2)"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.024991   0.039733  -0.629  0.53235    
+X            0.087862   0.050965   1.724  0.09115 .  
+lag(Y, 1)    0.989425   0.051685  19.143  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.9942
+[1] -0.3536389
+[1] "DCCA:"
+[1] 0.9708
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.024991   0.039733  -0.629  0.53235    
+X            0.087862   0.050965   1.724  0.09115 .  
+lag(Y, 1)    0.989425   0.051685  19.143  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.9942
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.024991   0.039733  -0.629  0.53235    
+X            0.087862   0.050965   1.724  0.09115 .  
+lag(Y, 1)    0.989425   0.051685  19.143  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.11909, Truncation lag parameter = 3, p-value = 0.1
+

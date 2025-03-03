@@ -1,0 +1,71 @@
+[1] "Sad in Yougov and Sad in Bertweet (Epoch:2)"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0090369  0.0319819  0.2826   0.7779    
+X           0.0228304  0.0334262  0.6830   0.4955    
+lag(Y, 1)   0.9274638  0.0328324 28.2485   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.6018
+[1] -0.07010245
+[1] "DCCA:"
+[1] 0.7647
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0090369  0.0319819  0.2826   0.7779    
+X           0.0228304  0.0334262  0.6830   0.4955    
+lag(Y, 1)   0.9274638  0.0328324 28.2485   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.6018
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0090369  0.0319819  0.2826   0.7779    
+X           0.0228304  0.0334262  0.6830   0.4955    
+lag(Y, 1)   0.9274638  0.0328324 28.2485   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.22686, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Sad in Yougov and Sad in Bertweet (Epoch:2) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.06817924
+[1] "scaled: "
+[1] 2.388744
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.068473 -0.015602 -0.003447  0.010134  0.106163 
+
+Coefficients:
+                Estimate   Std. Error t value Pr(>|t|)    
+(Intercept)     0.283823     0.009062  31.319  < 2e-16 ***
+Y           -3947.870935  1457.113225  -2.709  0.00742 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.02552 on 174 degrees of freedom
+Multiple R-squared:  0.04048,	Adjusted R-squared:  0.03497 
+F-statistic: 7.341 on 1 and 174 DF,  p-value: 0.007415
+

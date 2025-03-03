@@ -1,0 +1,71 @@
+[1] "Inspired in Yougov and Inspired in Bertweet (Single Query Sim Epoch:2)"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0137871  0.0322882  0.4270   0.6700    
+X           0.0066184  0.0358758  0.1845   0.8539    
+lag(Y, 1)   0.9155137  0.0302714 30.2435   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.1119
+[1] 0.1132749
+[1] "DCCA:"
+[1] 0.1562
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0137871  0.0322882  0.4270   0.6700    
+X           0.0066184  0.0358758  0.1845   0.8539    
+lag(Y, 1)   0.9155137  0.0302714 30.2435   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.1119
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0137871  0.0322882  0.4270   0.6700    
+X           0.0066184  0.0358758  0.1845   0.8539    
+lag(Y, 1)   0.9155137  0.0302714 30.2435   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.04918, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Inspired in Yougov and Inspired in Bertweet (Single Query Sim Epoch:2) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.007878355
+[1] "scaled: "
+[1] 2.414172
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.019130 -0.007956  0.001330  0.005057  0.028590 
+
+Coefficients:
+               Estimate  Std. Error t value Pr(>|t|)    
+(Intercept)     0.09847     0.00399  24.677  < 2e-16 ***
+Y           -4390.90148  1658.77807  -2.647  0.00902 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.01023 on 144 degrees of freedom
+Multiple R-squared:  0.0464,	Adjusted R-squared:  0.03978 
+F-statistic: 7.007 on 1 and 144 DF,  p-value: 0.009023
+

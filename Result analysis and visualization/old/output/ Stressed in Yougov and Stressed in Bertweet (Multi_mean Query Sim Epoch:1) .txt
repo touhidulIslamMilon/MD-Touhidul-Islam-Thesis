@@ -1,0 +1,71 @@
+[1] "Stressed in Yougov and Stressed in Bertweet (Multi_mean Query Sim Epoch:1)"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0073871  0.0278729 -0.2650   0.7913    
+X            0.0269426  0.0234160  1.1506   0.2516    
+lag(Y, 1)    0.9333209  0.0254273 36.7055   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.2894
+[1] -0.02602831
+[1] "DCCA:"
+[1] 0.5979
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0073871  0.0278729 -0.2650   0.7913    
+X            0.0269426  0.0234160  1.1506   0.2516    
+lag(Y, 1)    0.9333209  0.0254273 36.7055   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.2894
+[1] "Lagged model:"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0073871  0.0278729 -0.2650   0.7913    
+X            0.0269426  0.0234160  1.1506   0.2516    
+lag(Y, 1)    0.9333209  0.0254273 36.7055   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.25055, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Stressed in Yougov and Stressed in Bertweet (Multi_mean Query Sim Epoch:1) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.1672007
+[1] "scaled: "
+[1] 1.60494
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.088558 -0.017104 -0.000073  0.017931  0.100111 
+
+Coefficients:
+                Estimate   Std. Error t value Pr(>|t|)    
+(Intercept)     0.391498     0.006929  56.501   <2e-16 ***
+Y           11488.813690  4598.724895   2.498   0.0135 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.027 on 162 degrees of freedom
+Multiple R-squared:  0.0371,	Adjusted R-squared:  0.03115 
+F-statistic: 6.241 on 1 and 162 DF,  p-value: 0.01348
+

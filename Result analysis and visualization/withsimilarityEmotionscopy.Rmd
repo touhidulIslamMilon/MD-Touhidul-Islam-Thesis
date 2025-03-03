@@ -1,0 +1,1215 @@
+---
+title: 
+date: 
+author: 
+output: 
+  pdf_document:
+    keep_tex: true
+---
+
+```{r, echo=FALSE, message=FALSE, results='hide', cache=T}
+Sys.setlocale("LC_TIME", "en_US.UTF-8")
+
+library(dplyr) #dplyr_1.0.3
+library(ggplot2) #ggplot2_3.3.2
+library(ggpubr) #ggpubr_0.4.0
+library(readxl) #readxl_1.3.1
+library(zoo) #zoo_1.8-8
+library(DCCA) #DCCA_0.1.1 
+library(sandwich) #sandwich_3.0-1
+library(tseries) #tseries_0.10-47
+library(lmtest) #lmtest_0.9-38 
+library(knitr) #knitr_1.30
+library(psych) #psych_2.1.6
+options(scipen = 10)
+
+source("Functions.R")
+R <- 10000
+```
+
+```{r}
+#download.file("https://yougov.co.uk/_pubapis/v5/uk/trackers/britains-mood-measured-weekly/download/", destfile="YouGov/britains-mood-measured-weekly.xlsx")
+Yougovdf <- read_excel("yougovoutput.xlsx", sheet="yougovoutput")
+names(Yougovdf)[1] <- "day"
+
+```
+
+```{r}
+#result <- t(read_excel("single/single_quary_epoch2.xlsx"))
+#result <- read.csv(file="output.csv")
+#names(result) <- c("day", "bert.result")
+#result$ro <- rollmean(result$bert.result, k=7, align="right", na.pad = T)
+epoch<-2
+query_type<-"Single"
+similarity<-"Sim"
+#filename<-getfilename(epoch, query_type,similarity)
+filename <-"Result/baseline_same_model.xlsx"
+berd <- read_excel(filename,sheet="transpose")
+names(berd)[1] <- "day"
+#Yougovdf$day <- as.Date(Yougovdf$day)
+Yougovdf$day <- Yougovdf$day
+joind = inner_join(Yougovdf, berd, by="day")
+#berdsad$value_column[is.na(berdsad$value_column)] <- mean(berdsad$value_column, na.rm = TRUE)
+```
+
+Sad with similarity
+
+``` r
+```
+
+```{r}
+Emotion<-"Sad"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet (Type: Base Model)")
+joind$x <- joind$Sad.x
+joind$y <- joind$Sad.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y",  "darkred", "darkblue","Yougov", "Base Model", title=label, ylab=y_label, ymin=-2.5, ymax=5,label) 
+#capture.output({
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+#}, file = 'file.txt')
+```
+
+Happy with similartiy
+
+```{r}
+Emotion<-"Happy"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet (Type: Base Model)")
+joind$x <- joind$Happy.x
+joind$y <- joind$Happy.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y",  "darkred","darkblue", "Yougov", "Base Model", title=label, ylab=y_label, ymin=-2.5, ymax=5,label) 
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+Stressed with similarity
+
+```{r}
+Emotion<-"Stressed"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet (Epoch:",epoch,')',sep = "")
+
+joind$x <- joind$Stressed.x
+joind$y <- joind$Stressed.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", "Bert", "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,label) 
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+Frustrated
+
+```{r}
+Emotion<-"Frustrated"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet (",query_type,' Query ',similarity," Epoch:",epoch,')',sep = "")
+
+joind$x <- joind$Frustrated.x
+joind$y <- joind$Frustrated.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", "Bert", "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,label) 
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+Inspired
+
+```{r}
+Emotion<-"Inspired"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet (",query_type,' Query ',similarity," Epoch:",epoch,')',sep = "")
+
+joind$x <- joind$Inspired.x
+joind$y <- joind$Inspired.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", "Bert", "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,label) 
+
+results <- analyses(joind, joind, R, label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+
+```
+
+Apathetic
+
+```{r}
+Emotion<-"Apathetic"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet (",query_type,' Query ',similarity," Epoch:",epoch,')',sep = "")
+
+joind$x <- joind$Apathetic.x
+joind$y <- joind$Apathetic.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", "Bert", "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,label)  
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+Lonely
+
+```{r}
+Emotion<-"Lonely"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet (",query_type,' Query ',similarity," Epoch:",epoch,')',sep = "")
+
+joind$x <- joind$Lonely.x
+joind$y <- joind$Lonely.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", "Bert", "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,label) 
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+Optimistic
+
+```{r}
+Emotion<-"Optimistic"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet (",query_type,' Query ',similarity," Epoch:",epoch,')',sep = "")
+
+joind$x <- joind$Optimistic.x
+joind$y <- joind$Optimistic.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", "Bert", "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,label) 
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+
+```
+
+Content
+
+```{r}
+Emotion<-"Content"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet (",query_type,' Query ',similarity," Epoch:",epoch,')',sep = "")
+
+joind$x <- joind$Content.x
+joind$y <- joind$Content.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", "Bert", "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,label) 
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+Energetic
+
+```{r}
+Emotion<-"Energetic"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet (",query_type,' Query ',similarity," Epoch:",epoch,')',sep = "")
+
+joind$x <- joind$Energetic.x
+joind$y <- joind$Energetic.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", "Bert", "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,y_label) 
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+Frustrated
+
+```{r}
+Emotion<-"Frustrated"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet (",query_type,' Query ',similarity," Epoch:",epoch,')',sep = "")
+
+joind$x <- joind$Frustrated.x
+joind$y <- joind$Frustrated.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", "Bert", "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,y_label) 
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+# Bored
+
+```{r}
+```
+
+```{r}
+Emotion<-"Bored"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet (",query_type,' Query ',similarity," Epoch:",epoch,')',sep = "")
+
+joind$x <- joind$Bored.x
+joind$y <- joind$Bored.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", "Bert", "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,y_label) 
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+Scared
+
+```         
+```
+
+```{r}
+source("Functions.R")
+R <- 10000
+#download.file("https://yougov.co.uk/_pubapis/v5/uk/trackers/britains-mood-measured-weekly/download/", destfile="YouGov/britains-mood-measured-weekly.xlsx")
+Yougovdf <- read_excel("yougovoutput.xlsx", sheet="yougovoutput")
+names(Yougovdf)[1] <- "day"
+```
+
+```{r}
+epoch<-2
+query_type<-"Multi_mean"
+similarity<-"Sim"
+filename<-getfilename(epoch, query_type,similarity)
+#filename <-"Result/baseline_same_model.xlsx"
+berd <- read_excel(filename,sheet="transpose")
+names(berd)[1] <- "day"
+#Yougovdf$day <- as.Date(Yougovdf$day)
+Yougovdf$day <- Yougovdf$day
+joind = inner_join(Yougovdf, berd,by="day")
+
+joind$x <- joind$Sad.x
+
+joind$y <- joind$Sad.y
+```
+
+```{r}
+epoch<-2
+query_type<-"Multi_median"
+similarity<-"NoSim"
+filename<-getfilename(epoch, query_type,similarity)
+#filename <-"Result/baseline_same_model.xlsx"
+berd2 <- read_excel(filename,sheet="transpose")
+names(berd2)[1] <- "day"
+
+
+joind = inner_join(joind, berd2,by="day")
+
+
+```
+
+```{r}
+
+joind$z <- joind$Sad
+```
+
+```{r}
+joind$z <- rollmean(joind$z, k=7, align="right", na.pad = T)
+joind$y <- rollmean(joind$y, k=3, align="right", na.pad = T)
+joind$x <- rollmean(joind$x, k=7, align="right", na.pad = T)
+```
+
+```{r}
+joind$y <- rollmean(joind$y, k=4, align="right", na.pad = T)
+```
+
+```         
+```
+
+```{r}
+plotTS2(joind,joind, "x", "y","z", "red", "blue","gray", "yougov", "Similarity","Normal", title="Sad with similarity and without similarity", ylab="Rescaled Sadness", ymin=-2.5, ymax=5) 
+```
+
+```         
+```
+
+```{r}
+
+epoch<-1
+query_type<-"Multi_mean"
+similarity<-"NoSim"
+filename<-getfilename(epoch, query_type,similarity)
+#filename <-"Result/baseline_same_model.xlsx"
+berd3 <- read_excel(filename,sheet="transpose")
+names(berd3)[1] <- "day"
+
+
+joind = inner_join(joind, berd3,by="day")
+
+
+```
+
+```         
+  
+```
+
+```{r}
+joind$z <- joind$Sad.x.x
+joind$b <- joind$Sad.y.y
+#joind$b <- rollmean(joind$b, k=7, align="right", na.pad = T)
+#joind$z <- rollmean(joind$z, k=7, align="right", na.pad = T)
+```
+
+```{r}
+source("Functions.R")
+```
+
+```{r}
+genderdf <- read.csv("Data/RobertaAggGender.csv")
+
+genderdf %>% filter(gender=="male") -> maledf
+maledf$signalM <- maledf$mnfear
+genderdf %>% filter(gender=="female") -> femaledf
+femaledf$signalF <- femaledf$mnfear
+TwitterUKdf <- inner_join(maledf, femaledf, by="date")
+TwitterUKdf$signal <- TwitterUKdf$signalF+TwitterUKdf$signalM
+names(TwitterUKdf)[2] <- "day"
+
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+
+#Yougovdf$r <- Yougovdf$scared/100
+joind = inner_join(joind, TwitterUKdf,by="day")
+
+```
+
+```{r}
+Tdf <- read.csv("Data/genderVolume-total.csv")
+Tdf2 <- read.csv("Data/genderVolume-sadness.csv")
+TwitterUKdf <- inner_join(Tdf, Tdf2, by="day")
+names(TwitterUKdf) <- c("day", "n.male", "n.female", "nLIWC.male",  "nLIWC.female")
+TwitterUKdf$signal <- TwitterUKdf$nLIWC.male/TwitterUKdf$n.male + TwitterUKdf$nLIWC.female/TwitterUKdf$n.female
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+joind = inner_join(joind, TwitterUKdf,by="day")
+joind$z <- joind$w
+#joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+#joind$x <- rollmean(joind$x, k=7, align="right", na.pad = T)
+#joind$z <- rollmean(joind$z, k=7, align="right", na.pad = T)
+```
+
+```{r}
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind$x <- rollmean(joind$x, k=7, align="right", na.pad = T)
+joind$z <- rollmean(joind$z, k=7, align="right", na.pad = T)
+```
+
+## Sadness without gender reweight
+
+```{r, echo=FALSE, message=FALSE, fig.width=9, fig.height=3, cache=T}
+#plotTS3(joind,"x", "y","z","b", "gray", "red","blue","gold", "Yougov", " Single","Single","Multi", title="Sad in Yougov, Bertweet", ylab="Rescaled Sadness", ymin=-5, ymax=5) 
+plotTS2(joind,joind, "x", "y","z", "red", "blue","gold", "yougov", "bert","base", title="Happy in Yougov, Bertweet, and base model 3 RoBERTa", ylab="Rescaled Sadness", ymin=-2.5, ymax=5) 
+```
+
+```{r}
+# Define parameters
+epoch <- 2
+query_type <- "Multi_mean"
+similarity <- "Sim"
+
+# Load berd2 dataset
+filename <- getfilename(epoch, query_type, similarity)
+berd2 <- read_excel(filename, sheet = "transpose")
+names(berd2)[1] <- "day"
+
+# Merge Yougovdf and berd2
+joind <- inner_join(Yougovdf, berd2, by = "day")
+
+# Update similarity for new dataset
+epoch <- 2
+query_type <- "Multi_mean"
+similarity <- "NoSim"
+filename <- getfilename(epoch, query_type, similarity)
+
+# Load berd dataset and merge
+berd <- read_excel(filename, sheet = "transpose")
+names(berd)[1] <- "day"
+joind2 <- inner_join(Yougovdf, berd, by = "day")
+
+# Compute rolling mean
+#joind$x <- rollmean(Yougovdf$Sad,  k = 7, align = "right", na.pad = TRUE)
+
+
+# Reload berd3 dataset and merge
+epoch <- 2
+query_type <- "Multi_mean"
+similarity <- "NoSim"
+filename <- getfilename(epoch, query_type, similarity)
+berd3 <- read_excel(filename, sheet = "transpose")
+names(berd3)[1] <- "day"
+joind3 <- inner_join(Yougovdf, berd3, by = "day")
+
+# Compute additional rolling means
+
+
+joind$y <- rollmean(joind$Happy.y, k = 7, align = "right", na.pad = TRUE)
+joind$z <- rollmean(joind2$Happy.y, k = 7, align = "right", na.pad = TRUE)
+joind$b <- rollmean(joind3$Happy.y, k = 7, align = "right", na.pad = TRUE)
+# Compute rolling mean
+joind$x <- rollmean(joind$Happy.x,  k = 7, align = "right", na.pad = TRUE)
+
+# Plot results
+plotTS2(joind,joind, "x", "y", "z", 
+        "green", "red", "blue", 
+        "Yougov", "Epoch 1", "Epoch 2",
+        title = "Sad in Yougov, Bertweet",
+        ylab = "Rescaled Sadness",
+        ymin = -5, ymax = 5)
+```
+
+## Sadness: men
+
+```         
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+```
+
+```{r}
+epoch<-1
+query_type<-"Multi_mean"
+similarity<-"Sim"
+filename<-getfilename(epoch, query_type,similarity)
+#filename <-"Result/baseline_same_model.xlsx"
+berd <- read_excel(filename,sheet="transpose")
+names(berd)[1] <- "day"
+
+
+```
+
+```{r}
+epoch<-1
+query_type<-"Multi_mean"
+similarity<-"NoSim"
+filename<-getfilename(epoch, query_type,similarity)
+#filename <-"Result/baseline_same_model.xlsx"
+berd2 <- read_excel(filename,sheet="transpose")
+names(berd2)[1] <- "day"
+joind2 = inner_join(Yougovdf, berd,by="day")
+joind2 = inner_join(joind2, berd2,by="day")
+
+```
+
+```{r}
+
+joind2$x <- joind2$Sad.x
+joind2$y <- joind2$Sad.y
+joind2$a <- joind2$Sad
+#joind2$y <- rollmean(joind2$y, k=7, align="right", na.pad = T)
+#joind2$a <- rollmean(joind2$a, k=7, align="right", na.pad = T)
+```
+
+```{r}
+plotTS2(joind2,joind2, "x", "y","a", "red", "blue","gold", "yougov", "bert","base", title="Happy in Yougov, Bertweet, and base model 1", ylab="Rescaled Sadness", ymin=-2.5, ymax=5) 
+```
+
+## Sadness: women
+
+```         
+```
+
+## Sadness Roberta
+
+```{r, echo=FALSE, message=FALSE, fig.width=5, fig.height=3.5, cache=T}
+genderdf <- read.csv("Data/RobertaAggGender.csv")
+
+genderdf %>% filter(gender=="male") -> maledf
+maledf$signalM <- maledf$mnsadness
+genderdf %>% filter(gender=="female") -> femaledf
+femaledf$signalF <- femaledf$mnsadness
+TwitterUKdf <- inner_join(maledf, femaledf, by="date")
+TwitterUKdf$signal <- TwitterUKdf$signalF+TwitterUKdf$signalM
+names(TwitterUKdf)[2] <- "day"
+
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+
+Yougovdf$r <- Yougovdf$sad/100
+
+Twittersel <- left_join(Yougovdf, TwitterUKdf, by="day")
+Twittersel$r <- Twittersel$w
+
+plotTS(Twittersel, Yougovdf, "r", "r","darkorange", "darkred","Twitter", "Yougov", title="Sad in Yougov and Sad in Twitter (Roberta)", ylab="Rescaled Sadness", ymin=-2.5, ymax=5) 
+
+nres <- analyses(Twittersel, Yougovdf, R)
+nres$emotion  <- "sadness"
+nres$method <- "RoBERTa"
+nres$reweight <- "Yes"
+results <- rbind(results, nres)
+```
+
+## Sadness Roberta without gender reweight
+
+```{r, echo=FALSE, message=FALSE, fig.width=9, fig.height=3, cache=T}
+Tdf <- read.csv("Data/RobertaAgg.csv")
+TwitterUKdf <- data.frame(Tdf$date, Tdf$n, Tdf$mnsadness)
+names(TwitterUKdf) <- c("day", "n", "signal")
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+
+Yougovdf$r <- Yougovdf$sad/100
+
+Twittersel <- left_join(Yougovdf, TwitterUKdf, by="day")
+Twittersel$r <- Twittersel$w
+
+nres <- analyses(Twittersel, Yougovdf, R)
+nres$emotion  <- "sadness"
+nres$method <- "RoBERTa"
+nres$reweight <- "No"
+results <- rbind(results, nres)
+```
+
+\newpage
+
+# Scared
+
+```{r, echo=FALSE, message=FALSE, fig.width=5, fig.height=3.5, cache=T}
+Tdf <- read.csv("Data/genderVolume-total.csv")
+Tdf2 <- read.csv("Data/genderVolume-anxiety.csv")
+TwitterUKdf <- inner_join(Tdf, Tdf2, by="day")
+names(TwitterUKdf) <- c("day", "n.male", "n.female", "nLIWC.male",  "nLIWC.female")
+TwitterUKdf$signal <- TwitterUKdf$nLIWC.male/TwitterUKdf$n.male + TwitterUKdf$nLIWC.female/TwitterUKdf$n.female
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+
+Yougovdf$r <- Yougovdf$scared/100
+
+Twittersel <- left_join(Yougovdf, TwitterUKdf, by="day")
+Twittersel$r <- Twittersel$w
+
+plotTS(Twittersel, Yougovdf, "r", "r", "darkblue", "darkred", "Twitter", "Yougov", title="Scared in Yougov and Anxiety in Twitter (LIWC)", ylab="Rescaled Anxiety", ymin=-2.5, ymax=7.5) 
+
+nres <- analyses(Twittersel, Yougovdf, R)
+nres$emotion  <- "anxiety"
+nres$method <- "LIWC"
+nres$reweight <- "Yes"
+results <- rbind(results, nres)
+```
+
+## Scared without gender reweight
+
+```{r, echo=FALSE, message=FALSE, fig.width=9, fig.height=3, cache=T}
+Tdf <- read.csv("Data/Volume-total.csv")
+Tdf2 <- read.csv("Data/Volume-anxiety.csv")
+TwitterUKdf <- inner_join(Tdf, Tdf2, by="day")
+names(TwitterUKdf) <- c("day", "n", "nAnxLIWC")
+TwitterUKdf$signal <- TwitterUKdf$nAnxLIWC/TwitterUKdf$n
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+
+Yougovdf$r <- Yougovdf$scared/100
+
+Twittersel <- left_join(Yougovdf, TwitterUKdf, by="day")
+Twittersel$r <- Twittersel$w
+
+nres <- analyses(Twittersel, Yougovdf, R)
+nres$emotion  <- "anxiety"
+nres$method <- "LIWC"
+nres$reweight <- "No"
+results <- rbind(results, nres)
+```
+
+## Scared: men
+
+```{r, echo=FALSE, message=FALSE, fig.width=9, fig.height=3, cache=T}
+Tdf <- read.csv("Data/genderVolume-total.csv")
+Tdf2 <- read.csv("Data/genderVolume-anxiety.csv")
+TwitterUKdf <- inner_join(Tdf, Tdf2, by="day")
+names(TwitterUKdf) <- c("day", "n.male", "n.female", "nLIWC.male",  "nLIWC.female")
+TwitterUKdf$signal <- TwitterUKdf$nLIWC.male/TwitterUKdf$n.male
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+
+Mdf$r <- Mdf$scared/100
+
+Twittersel <- left_join(Mdf, TwitterUKdf, by="day")
+Twittersel$r <- Twittersel$w
+
+nres <- analyses(Twittersel, Mdf, R)
+nres$emotion <- "anxiety"
+nres$gender <- "male"
+genderresults <- rbind(genderresults, nres)
+```
+
+## Scared: women
+
+```{r, echo=FALSE, message=FALSE, fig.width=9, fig.height=3, cache=T}
+TwitterUKdf$signal <- TwitterUKdf$nLIWC.female/TwitterUKdf$n.female
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+
+Fdf$r <- Fdf$scared/100
+
+Twittersel <- left_join(Fdf, TwitterUKdf, by="day")
+Twittersel$r <- Twittersel$w
+
+
+nres <- analyses(Twittersel, Fdf, R)
+nres$emotion <- "anxiety"
+nres$gender <- "female"
+genderresults <- rbind(genderresults, nres)
+```
+
+## Scared Roberta
+
+```{r, echo=FALSE, message=FALSE, fig.width=5, fig.height=3.5, cache=T}
+genderdf <- read.csv("Data/RobertaAggGender.csv")
+
+genderdf %>% filter(gender=="male") -> maledf
+maledf$signalM <- maledf$mnfear
+genderdf %>% filter(gender=="female") -> femaledf
+femaledf$signalF <- femaledf$mnfear
+TwitterUKdf <- inner_join(maledf, femaledf, by="date")
+TwitterUKdf$signal <- TwitterUKdf$signalF+TwitterUKdf$signalM
+names(TwitterUKdf)[2] <- "day"
+
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+
+Yougovdf$r <- Yougovdf$scared/100
+
+Twittersel <- left_join(Yougovdf, TwitterUKdf, by="day")
+Twittersel$r <- Twittersel$w
+
+plotTS(Twittersel, Yougovdf, "r", "r", "darkorange", "darkred", "Twitter", "Yougov", title="Scared in Yougov and Fear in Twitter (Roberta)", ylab="Rescaled Fear", ymin=-2.5, ymax=7.5) 
+
+
+nres <- analyses(Twittersel, Yougovdf, R)
+nres$emotion  <- "anxiety"
+nres$method <- "RoBERTa"
+nres$reweight <- "Yes"
+results <- rbind(results, nres)
+```
+
+## Scared Roberta without gender reweight
+
+```{r, echo=FALSE, message=FALSE, fig.width=9, fig.height=3, cache=T}
+Tdf <- read.csv("Data/RobertaAgg.csv")
+TwitterUKdf <- data.frame(Tdf$date, Tdf$n, Tdf$mnfear)
+names(TwitterUKdf) <- c("day", "n", "signal")
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+
+Yougovdf$r <- Yougovdf$scared/100
+
+Twittersel <- left_join(Yougovdf, TwitterUKdf, by="day")
+Twittersel$r <- Twittersel$w
+
+nres <- analyses(Twittersel, Yougovdf, R)
+nres$emotion  <- "anxiety"
+nres$method <- "RoBERTa"
+nres$reweight <- "No"
+results <- rbind(results, nres)
+```
+
+\newpage
+
+# Happy
+
+```{r, echo=FALSE, message=FALSE, fig.width=5, fig.height=3.5, cache=T}
+Tdf <- read.csv("Data/genderVolume-total.csv")
+Tdf2 <- read.csv("Data/genderVolume-posemo.csv")
+TwitterUKdf <- inner_join(Tdf, Tdf2, by="day")
+names(TwitterUKdf) <- c("day", "n.male", "n.female", "nLIWC.male",  "nLIWC.female")
+TwitterUKdf$signal <- TwitterUKdf$nLIWC.male/TwitterUKdf$n.male + TwitterUKdf$nLIWC.female/TwitterUKdf$n.female
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+
+Yougovdf$r <- Yougovdf$happy/100
+
+Twittersel <- left_join(Yougovdf, TwitterUKdf, by="day")
+Twittersel$r <- Twittersel$w
+
+plotTS(Twittersel, Yougovdf, "r", "r", "darkblue", "darkred",  "Twitter", "Yougov", title="Happy in Yougov and Positive in Twitter (LIWC)", ylab="Rescaled Positive", ymin=-3.5, ymax=4)
+
+nres <- analyses(Twittersel, Yougovdf, R)
+nres$emotion  <- "joy"
+nres$method <- "LIWC"
+nres$reweight <- "Yes"
+results <- rbind(results, nres)
+```
+
+## Happy without gender reweight
+
+```{r, echo=FALSE, message=FALSE, fig.width=9, fig.height=3, cache=T}
+Tdf <- read.csv("Data/Volume-total.csv")
+Tdf2 <- read.csv("Data/Volume-posemo.csv")
+TwitterUKdf <- inner_join(Tdf, Tdf2, by="day")
+names(TwitterUKdf) <- c("day", "n", "nPosLIWC")
+TwitterUKdf$signal <- TwitterUKdf$nPosLIWC/TwitterUKdf$n
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+
+Yougovdf$r <- Yougovdf$happy/100
+
+Twittersel <- left_join(Yougovdf, TwitterUKdf, by="day")
+Twittersel$r <- Twittersel$w
+
+nres <- analyses(Twittersel, Yougovdf, R)
+nres$emotion  <- "joy"
+nres$method <- "LIWC"
+nres$reweight <- "No"
+results <- rbind(results, nres)
+```
+
+## Happy: men
+
+```{r, echo=FALSE, message=FALSE, fig.width=9, fig.height=3, cache=T}
+Tdf <- read.csv("Data/genderVolume-total.csv")
+Tdf2 <- read.csv("Data/genderVolume-posemo.csv")
+TwitterUKdf <- inner_join(Tdf, Tdf2, by="day")
+names(TwitterUKdf) <- c("day", "n.male", "n.female", "nLIWC.male",  "nLIWC.female")
+TwitterUKdf$signal <- TwitterUKdf$nLIWC.male/TwitterUKdf$n.male
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+
+Mdf$r <- Mdf$happy/100
+
+Twittersel <- left_join(Mdf, TwitterUKdf, by="day")
+Twittersel$r <- Twittersel$w
+
+nres <- analyses(Twittersel, Mdf, R)
+nres$emotion <- "joy"
+nres$gender <- "male"
+genderresults <- rbind(genderresults, nres)
+```
+
+## Happy: women
+
+```{r, echo=FALSE, message=FALSE, fig.width=9, fig.height=3, cache=T}
+TwitterUKdf$signal <- TwitterUKdf$nLIWC.female/TwitterUKdf$n.female
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+
+Fdf$r <- Fdf$happy/100
+
+Twittersel <- left_join(Fdf, TwitterUKdf, by="day")
+Twittersel$r <- Twittersel$w
+
+nres <- analyses(Twittersel, Fdf, R)
+nres$emotion <- "joy"
+nres$gender <- "female"
+genderresults <- rbind(genderresults, nres)
+
+```
+
+## Happy Roberta
+
+```{r, echo=FALSE, message=FALSE, fig.width=5, fig.height=3.5, cache=T}
+genderdf <- read.csv("Data/RobertaAggGender.csv")
+
+genderdf %>% filter(gender=="male") -> maledf
+maledf$signalM <- maledf$mnjoy
+genderdf %>% filter(gender=="female") -> femaledf
+femaledf$signalF <- femaledf$mnjoy
+TwitterUKdf <- inner_join(maledf, femaledf, by="date")
+TwitterUKdf$signal <- TwitterUKdf$signalF+TwitterUKdf$signalM
+names(TwitterUKdf)[2] <- "day"
+
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+
+Yougovdf$r <- Yougovdf$happy/100
+
+Twittersel <- left_join(Yougovdf, TwitterUKdf, by="day")
+Twittersel$r <- Twittersel$w
+
+plotTS(Twittersel, Yougovdf, "r", "r", "darkorange", "darkred", "Twitter", "Yougov", title="Happy in Yougov and Joy in Twitter (Roberta)", ylab="Rescaled Joy", ymin=-3.5, ymax=4)
+
+
+nres <- analyses(Twittersel, Yougovdf, R)
+nres$emotion  <- "joy"
+nres$method <- "RoBERTa"
+nres$reweight <- "Yes"
+results <- rbind(results, nres)
+```
+
+## Happy Roberta without gender reweight
+
+```{r, echo=FALSE, message=FALSE, fig.width=9, fig.height=3, cache=T}
+Tdf <- read.csv("Data/RobertaAgg.csv")
+TwitterUKdf <- data.frame(Tdf$date, Tdf$n, Tdf$mnjoy)
+names(TwitterUKdf) <- c("day", "n", "signal")
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+
+Yougovdf$r <- Yougovdf$happy/100
+
+Twittersel <- left_join(Yougovdf, TwitterUKdf, by="day")
+Twittersel$r <- Twittersel$w
+
+nres <- analyses(Twittersel, Yougovdf, R)
+nres$emotion  <- "joy"
+nres$method <- "RoBERTa"
+nres$reweight <- "No"
+results <- rbind(results, nres)
+```
+
+# Summary macroscopes
+
+```{r, echo=FALSE, message=FALSE, fig.width=9, fig.height=3, cache=T}
+results %>% select(emotion, method, reweight, rh, rhlow, rhhigh, rhp, rhpperm, rp, rplow, rphigh, rpp, rppperm)%>% kable(digits=3)
+
+results %>% select(emotion, method, reweight, dcca, dccap, beta, betap, KSp)%>% kable(digits=3)
+
+genderresults %>% select(emotion, gender, rh, rhlow, rhhigh, rhp, rhpperm, rp, rplow, rphigh, rpp, rppperm)%>% kable(digits=3)
+
+genderresults %>% select(emotion, gender, dcca, dccap, beta, betap, KSp)%>% kable(digits=3)
+```
+
+# YouGov and I feel
+
+```{r, echo=FALSE, message=FALSE, fig.width=9, fig.height=3, cache=T}
+corrsdf <- NULL
+
+inds <- c("happy","sad","energetic","apathetic","inspired","frustrated","optimistic", "stressed","content","bored","lonely","scared")
+
+for (ind in inds)
+{
+print(ind)
+Yougovdf$r <- Yougovdf[[ind]]/100
+
+Tdf <- read.csv("Data/Volume-total.csv")
+Tdf2 <- read.csv(paste0("Data/Volume-",ind,"YouGov.csv"))
+TwitterUKdf <- inner_join(Tdf, Tdf2, by="day")
+names(TwitterUKdf) <- c("day", "n", "ntweets")
+TwitterUKdf$signal <- TwitterUKdf$ntweets/TwitterUKdf$n
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+TwitterUKdf$ntweetstotal <- rollsum(TwitterUKdf$ntweets, k=7, align="right", na.pad = T)
+
+Twittersel <- left_join(Yougovdf, TwitterUKdf, by="day")
+Twittersel$r <- Twittersel$w
+
+X <- Twittersel$r
+Y <- Yougovdf$r
+ct <- cor.test(X,Y)
+print(ct)
+
+print("Corr perm test p-val:")
+rndR <- permcor(X,Y,R) # do a permutation test 
+print((sum(rndR>=cor(X,Y))+1)/R)
+
+corrsdf <- rbind(corrsdf, data.frame(ind, cor=ct$estimate, corlow = ct$conf.int[1], corhigh = ct$conf.int[2], YGmean=mean(Yougovdf$r), TWmean=mean(Twittersel$ntweetstotal)))
+
+}
+```
+
+```{r, echo=FALSE, message=FALSE, fig.width=9, fig.height=3, cache=T, results='asis'}
+kable(corrsdf)
+```
+
+```{r, echo=FALSE, message=FALSE, fig.width=7, fig.height=3.5, cache=T}
+corrsdf$emotion <- corrsdf$ind
+
+ggplot(corrsdf, aes(x=reorder(emotion, cor), y=cor, fill=as.numeric(reorder(emotion, cor))-6, group=emotion)) + 
+  geom_col(stat="identity", color="black", 
+           position=position_dodge())  +  scale_fill_gradient2(low='blue', mid="purple", high='red') +
+  geom_errorbar(aes(ymin=corlow, ymax=corhigh), width=.2,
+                 position=position_dodge(.9))  + coord_flip() + theme_bw()
+
+
+```
+
+## With gender rescaling
+
+```{r, echo=FALSE, message=FALSE, fig.width=9, fig.height=3, cache=T}
+corrsdf <- NULL
+
+inds <- c("happy","sad","energetic","apathetic","inspired","frustrated","optimistic", "stressed","content","bored","lonely","scared")
+
+for (ind in inds)
+{
+print(ind)
+Yougovdf$r <- Yougovdf[[ind]]/100
+
+Tdf <- read.csv("Data/genderVolume-total.csv")
+Tdf2 <- read.csv(paste0("Data/genderVolume-",ind,"YouGov.csv"))
+TwitterUKdf <- inner_join(Tdf, Tdf2, by="day")
+names(TwitterUKdf) <- c("day", "maletotal", "femaletotal","male", "female")
+TwitterUKdf$signal <- TwitterUKdf$male/TwitterUKdf$maletotal + TwitterUKdf$female/TwitterUKdf$femaletotal
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+
+Twittersel <- left_join(Yougovdf, TwitterUKdf, by="day")
+Twittersel$r <- Twittersel$w
+
+X <- Twittersel$r
+Y <- Yougovdf$r
+ct <- cor.test(X,Y)
+print(ct)
+
+print("Corr perm test p-val:")
+rndR <- permcor(X,Y,R) # do a permutation test 
+print((sum(rndR>=cor(X,Y))+1)/R)
+
+corrsdf <- rbind(corrsdf, data.frame(ind, cor=ct$estimate, corlow = ct$conf.int[1], corhigh = ct$conf.int[2], YGmean=mean(Yougovdf$r)))
+
+}
+
+
+```
+
+```{r, echo=FALSE, message=FALSE, fig.width=9, fig.height=3, cache=T, results='asis'}
+kable(corrsdf)
+```
+
+```{r, echo=FALSE, message=FALSE, fig.width=7, fig.height=3.5, cache=T}
+corrsdf$emotion <- corrsdf$ind
+
+ggplot(corrsdf, aes(x=reorder(emotion, cor), y=cor, fill=as.numeric(reorder(emotion, cor))-6, group=emotion)) + 
+  geom_col(stat="identity", color="black", 
+           position=position_dodge())  +  scale_fill_gradient2(low='blue', mid="purple", high='red') +
+  geom_errorbar(aes(ymin=corlow, ymax=corhigh), width=.2,
+                 position=position_dodge(.9))  + coord_flip() + theme_bw()
+```
+
+# Social signals as 3rd person
+
+```{r, echo=FALSE, message=FALSE, results='hide', cache=T, eval=F}
+Yougovdf <- processYouGov(file="YouGov/britains-mood-measured-weekly.xlsx", sheet="All adults")
+names(Yougovdf)[1] <- "day"
+
+Tdf <- read.csv("TwitterAggregates/Volume-total.csv")
+
+Tdf2 <- read.csv("TwitterAggregates/Volume-sadness.csv")
+names(Tdf2) <- c("day", "nsad")
+Tdf <- inner_join(Tdf, Tdf2)
+
+Tdf2 <- read.csv("TwitterAggregates/Volume-anxiety.csv")
+names(Tdf2) <- c("day", "nanx")
+Tdf <- inner_join(Tdf, Tdf2)
+
+Tdf2 <- read.csv("TwitterAggregates/Volume-posemo.csv")
+names(Tdf2) <- c("day", "npos")
+Tdf <- inner_join(Tdf, Tdf2)
+
+Tdf2 <- read.csv("TwitterAggregates/Volume-3rdperson.csv")
+names(Tdf2) <- c("day", "n3rd")
+Tdf <- inner_join(Tdf, Tdf2)
+
+Tdf2 <- read.csv("TwitterAggregates/Volume-3rdpersonanx.csv")
+names(Tdf2) <- c("day", "n3rdanx")
+Tdf <- inner_join(Tdf, Tdf2)
+
+Tdf2 <- read.csv("TwitterAggregates/Volume-3rdpersonsad.csv")
+names(Tdf2) <- c("day", "n3rdsad")
+Tdf <- inner_join(Tdf, Tdf2)
+
+Tdf2 <- read.csv("TwitterAggregates/Volume-3rdpersonposemo.csv")
+names(Tdf2) <- c("day", "n3rdpos")
+Tdf <- inner_join(Tdf, Tdf2)
+
+Tdf %>% filter(as.Date(day)>min(as.Date(Yougovdf$day))-7 & as.Date(day) <= max(as.Date(Yougovdf$day))) -> Tdf
+```
+
+```{r, echo=FALSE, message=FALSE, cache=T, eval=F}
+print("Total fraction of 3rd person tweets:")
+sum(Tdf$n3rd)/sum(Tdf$ntweets)
+
+print("Total fraction of 3rd person tweets in anxiety:")
+n3rd <- sum(Tdf$n3rdanx)/sum(Tdf$nanx)
+n3rd
+
+print("Total fraction of 3rd person tweets in not anxiety:")
+n3rdnot <- sum(Tdf$n3rd-Tdf$n3rdanx)/sum(Tdf$ntweets-Tdf$nanx)
+n3rdnot
+
+print("% diff:")
+(n3rd-n3rdnot)/n3rdnot*100
+prop.test(c(sum(Tdf$n3rdanx),sum(Tdf$n3rd-Tdf$n3rdanx)) , c(sum(Tdf$nanx), sum(Tdf$ntweets-Tdf$nanx)))
+
+print("Total fraction of 3rd person tweets in sadness:")
+n3rd <- sum(Tdf$n3rdsad)/sum(Tdf$nsad)
+n3rd
+
+print("Total fraction of 3rd person tweets in not sadness:")
+n3rdnot <- sum(Tdf$n3rd-Tdf$n3rdsad)/sum(Tdf$ntweets-Tdf$nsad)
+n3rdnot
+
+print("% diff:")
+(n3rd-n3rdnot)/n3rdnot*100
+prop.test(c(sum(Tdf$n3rdsad),sum(Tdf$n3rd-Tdf$n3rdsad)) , c(sum(Tdf$nsad), sum(Tdf$ntweets-Tdf$nsad)))
+
+
+
+print("Total fraction of 3rd person tweets in positive:")
+n3rd <- sum(Tdf$n3rdpos)/sum(Tdf$npos)
+n3rd
+
+print("Total fraction of 3rd person tweets in not positive:")
+n3rdnot <- sum(Tdf$n3rd-Tdf$n3rdpos)/sum(Tdf$ntweets-Tdf$npos)
+n3rdnot
+
+print("% diff:")
+(n3rd-n3rdnot)/n3rdnot*100
+prop.test(c(sum(Tdf$n3rdpos),sum(Tdf$n3rd-Tdf$n3rdpos)) , c(sum(Tdf$npos), sum(Tdf$ntweets-Tdf$npos)))
+
+
+```
+
+```{r, echo=FALSE, message=FALSE, cache=T, eval=F}
+df <- read.csv("TwitterAggregates/LIWC_NER.csv")
+
+print("Total fraction of 3rd person tweets (NER):")
+sum(df$ref)/nrow(df)
+
+print("Total fraction of 3rd person tweets in anxiety:")
+f <- df$anx>0
+n3rd <- sum(df$ref[f])/sum(f)
+n3rd
+
+print("Total fraction of 3rd person tweets in not anxiety:")
+f <- df$anx==0
+n3rdnot <- sum(df$ref[f])/sum(f)
+n3rdnot
+
+print("% diff:")
+(n3rd-n3rdnot)/n3rdnot*100
+prop.test(c(sum(df$ref[df$anx>0]),sum(df$ref[df$anx==0])) , c(sum(df$anx>0), sum(df$anx==0)))
+
+print("Total fraction of 3rd person tweets in sadness:")
+f <- df$sad>0
+n3rd <- sum(df$ref[f])/sum(f)
+n3rd
+
+print("Total fraction of 3rd person tweets in not sadness:")
+f <- df$sad==0
+n3rdnot <- sum(df$ref[f])/sum(f)
+n3rdnot
+
+print("% diff:")
+(n3rd-n3rdnot)/n3rdnot*100
+prop.test(c(sum(df$ref[df$sad>0]),sum(df$ref[df$sad==0])) , c(sum(df$sad>0), sum(df$sad==0)))
+
+print("Total fraction of 3rd person tweets in positive:")
+f <- df$posemo>0
+n3rd <- sum(df$ref[f])/sum(f)
+n3rd
+
+print("Total fraction of 3rd person tweets in not positive:")
+f <- df$posemo==0
+n3rdnot <- sum(df$ref[f])/sum(f)
+n3rdnot
+
+
+print("% diff:")
+(n3rd-n3rdnot)/n3rdnot*100
+prop.test(c(sum(df$ref[df$posemo>0]),sum(df$ref[df$posemo==0])) , c(sum(df$posemo>0), sum(df$posemo==0)))
+
+```
+
+# Election poll correlations
+
+```{r, echo=FALSE, message=FALSE, cache=T}
+df <- read.csv("Data/USPollsAligned.csv")
+cor.test(df$YouGovBiden, df$HillBiden)
+cor.test(df$YouGovTrump, df$HillTrump)
+
+cor.test(df$YouGovBiden, df$RasmussenBiden)
+cor.test(df$YouGovTrump, df$RasmussenTrump)
+
+cor.test(df$RasmussenBiden, df$HillBiden)
+cor.test(df$RasmussenTrump, df$HillTrump)
+```
+
+# LIWC 3rd person analysis
+
+```{r, echo=FALSE, message=FALSE, cache=T, fig.width=4, fig.height=4, results='asis'}
+df <- read.csv("Data/LIWC_1M.csv", stringsAsFactors = F)
+
+model <- glm((shehe+they)>0 ~  (anx>0) + (sad>0) + (posemo>0), df, family="binomial")
+model1 <- glm((shehe+they)>0 ~ log(WC) + (anx>0) + (sad>0) + (posemo>0), df, family="binomial")
+model2 <- glm((shehe+they)>0 ~ log(WC) + (adj>0), df, family="binomial")
+
+library(texreg)
+texreg(list(model, model1, model2))
+```
+
+# Analysis of central users
+
+```{r, echo=FALSE, message=FALSE, fig.width=5, fig.height=3.5, cache=T}
+Tdf <- read.csv("Data/genderVolume-total.csv")
+Tdf2 <- read.csv("Data/genderVolume-sadness.csv")
+TwitterUKdf <- inner_join(Tdf, Tdf2, by="day")
+names(TwitterUKdf) <- c("day", "n.male", "n.female", "nLIWC.male",  "nLIWC.female")
+TwitterUKdf$signal <- TwitterUKdf$nLIWC.male/TwitterUKdf$n.male + TwitterUKdf$nLIWC.female/TwitterUKdf$n.female
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+Yougovdf$r <- Yougovdf$sad/100
+Twittersel <- left_join(Yougovdf, TwitterUKdf, by="day")
+
+Tdf <- read.csv("Data/genderAuthors-total10K.csv")
+Tdf2 <- read.csv("Data/genderAuthors-sadness10K.csv")
+TwitterUKdf10K <- inner_join(Tdf, Tdf2, by="day")
+names(TwitterUKdf10K) <- c("day", "n.male", "n.female", "nLIWC.male",  "nLIWC.female")
+TwitterUKdf10K$signal <- TwitterUKdf10K$nLIWC.male/TwitterUKdf10K$n.male + TwitterUKdf10K$nLIWC.female/TwitterUKdf10K$n.female
+TwitterUKdf10K$w10K <- rollmean(TwitterUKdf10K$signal, k=7, align="right", na.pad = T)
+
+Twittersel <- inner_join(Twittersel, TwitterUKdf10K, by="day")
+
+cor.test(Twittersel$r, Twittersel$w)
+cor.test(Twittersel$r, Twittersel$w10K)
+r.test(n=nrow(Twittersel), r12=cor(Twittersel$r,Twittersel$w10K), r13=cor(Twittersel$r, Twittersel$w), r23=cor(Twittersel$w, Twittersel$w10K), twotailed = F)
+```
+
+```{r, echo=FALSE, message=FALSE, fig.width=5, fig.height=3.5, cache=T}
+Tdf <- read.csv("Data/genderVolume-total.csv")
+Tdf2 <- read.csv("Data/genderVolume-anxiety.csv")
+TwitterUKdf <- inner_join(Tdf, Tdf2, by="day")
+names(TwitterUKdf) <- c("day", "n.male", "n.female", "nLIWC.male",  "nLIWC.female")
+TwitterUKdf$signal <- TwitterUKdf$nLIWC.male/TwitterUKdf$n.male + TwitterUKdf$nLIWC.female/TwitterUKdf$n.female
+TwitterUKdf$w <- rollmean(TwitterUKdf$signal, k=7, align="right", na.pad = T)
+Yougovdf$r <- Yougovdf$scared/100
+Twittersel <- left_join(Yougovdf, TwitterUKdf, by="day")
+
+Tdf <- read.csv("Data/genderAuthors-total10K.csv")
+Tdf2 <- read.csv("Data/genderAuthors-anxiety10K.csv")
+TwitterUKdf10K <- inner_join(Tdf, Tdf2, by="day")
+names(TwitterUKdf10K) <- c("day", "n.male", "n.female", "nLIWC.male",  "nLIWC.female")
+TwitterUKdf10K$signal <- TwitterUKdf10K$nLIWC.male/TwitterUKdf10K$n.male + TwitterUKdf10K$nLIWC.female/TwitterUKdf10K$n.female
+TwitterUKdf10K$w10K <- rollmean(TwitterUKdf10K$signal, k=7, align="right", na.pad = T)
+
+Twittersel <- inner_join(Twittersel, TwitterUKdf10K, by="day")
+
+cor.test(Twittersel$r, Twittersel$w)
+cor.test(Twittersel$r, Twittersel$w10K)
+r.test(n=nrow(Twittersel), r12=cor(Twittersel$r,Twittersel$w10K), r13=cor(Twittersel$r, Twittersel$w), r23=cor(Twittersel$w, Twittersel$w10K), twotailed = F)
+```

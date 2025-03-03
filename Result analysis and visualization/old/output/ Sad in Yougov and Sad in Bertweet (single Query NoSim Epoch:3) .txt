@@ -1,0 +1,71 @@
+[1] "Sad in Yougov and Sad in Bertweet (single Query NoSim Epoch:3)"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0054084  0.0317430  0.1704   0.8649    
+X           0.0172834  0.0281018  0.6150   0.5393    
+lag(Y, 1)   0.9363734  0.0275184 34.0272   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.2411
+[1] -0.06181249
+[1] "DCCA:"
+[1] 0.7209
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0054084  0.0317430  0.1704   0.8649    
+X           0.0172834  0.0281018  0.6150   0.5393    
+lag(Y, 1)   0.9363734  0.0275184 34.0272   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.2411
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0054084  0.0317430  0.1704   0.8649    
+X           0.0172834  0.0281018  0.6150   0.5393    
+lag(Y, 1)   0.9363734  0.0275184 34.0272   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.15687, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Sad in Yougov and Sad in Bertweet (single Query NoSim Epoch:3) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.0681723
+[1] "scaled: "
+[1] 2.192906
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.069264 -0.017623 -0.002164  0.011427  0.100839 
+
+Coefficients:
+               Estimate  Std. Error t value Pr(>|t|)    
+(Intercept)    0.272661    0.009621  28.342   <2e-16 ***
+Y           -659.380688  484.072517  -1.362    0.175    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.02591 on 174 degrees of freedom
+Multiple R-squared:  0.01055,	Adjusted R-squared:  0.004865 
+F-statistic: 1.855 on 1 and 174 DF,  p-value: 0.1749
+

@@ -1,0 +1,71 @@
+[1] "Frustrated in Yougov and Frustrated in Bertweet (single Query NoSim Epoch:3)"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0014517  0.0508239 -0.0286   0.9773    
+X           -0.0421086  0.0612566 -0.6874   0.4932    
+lag(Y, 1)    0.8446473  0.0388287 21.7531   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.8734
+[1] -0.07996565
+[1] "DCCA:"
+[1] 0.7311
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0014517  0.0508239 -0.0286   0.9773    
+X           -0.0421086  0.0612566 -0.6874   0.4932    
+lag(Y, 1)    0.8446473  0.0388287 21.7531   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.8734
+[1] "Lagged model:"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0014517  0.0508239 -0.0286   0.9773    
+X           -0.0421086  0.0612566 -0.6874   0.4932    
+lag(Y, 1)    0.8446473  0.0388287 21.7531   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.068368, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Frustrated in Yougov and Frustrated in Bertweet (single Query NoSim Epoch:3) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.1271898
+[1] "scaled: "
+[1] 2.186345
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.118884 -0.023486 -0.005017  0.021996  0.098100 
+
+Coefficients:
+                Estimate   Std. Error t value Pr(>|t|)    
+(Intercept)      0.36911      0.01367  27.000   <2e-16 ***
+Y           -14875.84935  13497.36377  -1.102    0.273    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.03849 on 114 degrees of freedom
+Multiple R-squared:  0.01054,	Adjusted R-squared:  0.001863 
+F-statistic: 1.215 on 1 and 114 DF,  p-value: 0.2727
+

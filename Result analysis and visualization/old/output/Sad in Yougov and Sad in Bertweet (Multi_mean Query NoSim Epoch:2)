@@ -1,0 +1,51 @@
+[1] "Sad in Yougov and Sad in Bertweet (Multi_mean Query NoSim Epoch:2)"
+[1] "Correlation up to Oct 31st 2020"
+
+	Pearson's product-moment correlation
+
+data:  X and Y
+t = -2.4203, df = 62, p-value = 0.01845
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.50327026 -0.05173448
+sample estimates:
+       cor 
+-0.2938075 
+
+[1] "Corr perm test p-val:"
+[1] 0.9903
+[1] "DCCA:"
+[1] 0.171345
+[1] "DCCA p-val:"
+[1] 0.1741
+[1] "Prediction correlation"
+
+	Pearson's product-moment correlation
+
+data:  X and Y
+t = -0.70007, df = 121, p-value = 0.4852
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.2378739  0.1148111
+sample estimates:
+        cor 
+-0.06351425 
+
+[1] 0.7663
+[1] "Lagged model:"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.0098687  0.0615082  0.1604   0.8731    
+X           -0.0198693  0.0518850 -0.3829   0.7031    
+lag(Y, 1)    0.9157736  0.0469261 19.5152   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.11044, Truncation lag parameter = 3, p-value = 0.1
+

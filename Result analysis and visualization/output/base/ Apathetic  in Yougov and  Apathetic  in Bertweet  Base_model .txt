@@ -1,0 +1,71 @@
+[1] "Apathetic  in Yougov and  Apathetic  in Bertweet  Base_model"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0012215  0.0477849  0.0256   0.9796    
+X           0.0158303  0.0272376  0.5812   0.5621    
+lag(Y, 1)   0.8428610  0.0799137 10.5471   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.1205
+[1] 0.04499567
+[1] "DCCA:"
+[1] 0.3474
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0012215  0.0477849  0.0256   0.9796    
+X           0.0158303  0.0272376  0.5812   0.5621    
+lag(Y, 1)   0.8428610  0.0799137 10.5471   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.1205
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0012215  0.0477849  0.0256   0.9796    
+X           0.0158303  0.0272376  0.5812   0.5621    
+lag(Y, 1)   0.8428610  0.0799137 10.5471   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.040397, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Apathetic  in Yougov and  Apathetic  in Bertweet  Base_model .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.03796105
+[1] "scaled: "
+[1] 2.386925
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.055441 -0.015551 -0.005114  0.014706  0.064706 
+
+Coefficients:
+                Estimate   Std. Error t value Pr(>|t|)    
+(Intercept)     0.198563     0.003042  65.278   <2e-16 ***
+Y           -1845.674113   761.567637  -2.424   0.0167 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.02477 on 138 degrees of freedom
+Multiple R-squared:  0.04082,	Adjusted R-squared:  0.03387 
+F-statistic: 5.873 on 1 and 138 DF,  p-value: 0.01667
+

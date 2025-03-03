@@ -1,0 +1,71 @@
+[1] "Frustrated  in Yougov and  Frustrated  in Bertweet   PANAS_X"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0098491  0.0476003 -0.2069   0.8365    
+X           -0.0298376  0.0472335 -0.6317   0.5289    
+lag(Y, 1)    0.8474759  0.0434729 19.4944   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.9978
+[1] -0.1067593
+[1] "DCCA:"
+[1] 0.8122
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0098491  0.0476003 -0.2069   0.8365    
+X           -0.0298376  0.0472335 -0.6317   0.5289    
+lag(Y, 1)    0.8474759  0.0434729 19.4944   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.9978
+[1] "Lagged model:"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0098491  0.0476003 -0.2069   0.8365    
+X           -0.0298376  0.0472335 -0.6317   0.5289    
+lag(Y, 1)    0.8474759  0.0434729 19.4944   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.054725, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Frustrated  in Yougov and  Frustrated  in Bertweet   PANAS_X .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.1271318
+[1] "scaled: "
+[1] 2.109555
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.111902 -0.023735 -0.004501  0.017268  0.101964 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.36658    0.01791  20.464   <2e-16 ***
+Y           -144.79029  211.62192  -0.684    0.495    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.03861 on 114 degrees of freedom
+Multiple R-squared:  0.00409,	Adjusted R-squared:  -0.004647 
+F-statistic: 0.4681 on 1 and 114 DF,  p-value: 0.4952
+

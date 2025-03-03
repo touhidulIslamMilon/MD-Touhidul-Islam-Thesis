@@ -1,0 +1,71 @@
+[1] "Stressed  in Yougov and  Stressed  in Bertweet  Base_model"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.010304   0.032100 -0.3210   0.7487    
+X            0.023553   0.021233  1.1092   0.2691    
+lag(Y, 1)    0.912046   0.030294 30.1062   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.4668
+[1] -0.004483952
+[1] "DCCA:"
+[1] 0.519
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.010304   0.032100 -0.3210   0.7487    
+X            0.023553   0.021233  1.1092   0.2691    
+lag(Y, 1)    0.912046   0.030294 30.1062   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.4668
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.010304   0.032100 -0.3210   0.7487    
+X            0.023553   0.021233  1.1092   0.2691    
+lag(Y, 1)    0.912046   0.030294 30.1062   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.29874, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Stressed  in Yougov and  Stressed  in Bertweet  Base_model .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.1665213
+[1] "scaled: "
+[1] 1.974261
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.08708 -0.01720  0.00269  0.02268  0.09312 
+
+Coefficients:
+               Estimate  Std. Error t value Pr(>|t|)    
+(Intercept)    0.406697    0.005957  68.272   <2e-16 ***
+Y            110.526677 1344.414615   0.082    0.935    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.0276 on 156 degrees of freedom
+Multiple R-squared:  4.332e-05,	Adjusted R-squared:  -0.006367 
+F-statistic: 0.006759 on 1 and 156 DF,  p-value: 0.9346
+

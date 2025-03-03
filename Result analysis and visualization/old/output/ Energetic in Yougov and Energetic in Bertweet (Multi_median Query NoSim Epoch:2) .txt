@@ -1,0 +1,71 @@
+[1] "Energetic in Yougov and Energetic in Bertweet (Multi_median Query NoSim Epoch:2)"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.019914   0.054681 -0.3642   0.7164    
+X            0.041939   0.044827  0.9356   0.3516    
+lag(Y, 1)    0.875426   0.051854 16.8825   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.1501
+[1] 0.01537659
+[1] "DCCA:"
+[1] 0.4543
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.019914   0.054681 -0.3642   0.7164    
+X            0.041939   0.044827  0.9356   0.3516    
+lag(Y, 1)    0.875426   0.051854 16.8825   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.1501
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.019914   0.054681 -0.3642   0.7164    
+X            0.041939   0.044827  0.9356   0.3516    
+lag(Y, 1)    0.875426   0.051854 16.8825   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.10459, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Energetic in Yougov and Energetic in Bertweet (Multi_median Query NoSim Epoch:2) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.01646076
+[1] "scaled: "
+[1] 2.004421
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.037392 -0.016943  0.002702  0.012832  0.033044 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)     0.1284     0.0103  12.468   <2e-16 ***
+Y           -2041.7052 17224.9545  -0.119    0.906    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.01706 on 108 degrees of freedom
+Multiple R-squared:  0.0001301,	Adjusted R-squared:  -0.009128 
+F-statistic: 0.01405 on 1 and 108 DF,  p-value: 0.9059
+

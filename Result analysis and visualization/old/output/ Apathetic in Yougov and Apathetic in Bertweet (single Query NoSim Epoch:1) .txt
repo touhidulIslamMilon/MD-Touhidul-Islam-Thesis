@@ -1,0 +1,71 @@
+[1] "Apathetic in Yougov and Apathetic in Bertweet (single Query NoSim Epoch:1)"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.00095362 0.04459798  0.0214    0.983    
+X           0.02097607 0.04023582  0.5213    0.603    
+lag(Y, 1)   0.86870590 0.04552797 19.0807   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.0809
+[1] 0.2257013
+[1] "DCCA:"
+[1] 0.0165
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.00095362 0.04459798  0.0214    0.983    
+X           0.02097607 0.04023582  0.5213    0.603    
+lag(Y, 1)   0.86870590 0.04552797 19.0807   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.0809
+[1] "Lagged model:"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.00095362 0.04459798  0.0214    0.983    
+X           0.02097607 0.04023582  0.5213    0.603    
+lag(Y, 1)   0.86870590 0.04552797 19.0807   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.15963, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Apathetic in Yougov and Apathetic in Bertweet (single Query NoSim Epoch:1) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.03758904
+[1] "scaled: "
+[1] 2.45692
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.070381 -0.016625 -0.002674  0.017443  0.073845 
+
+Coefficients:
+                Estimate   Std. Error t value Pr(>|t|)    
+(Intercept)      0.26317      0.02437  10.800  < 2e-16 ***
+Y           -39796.97546  13598.75206  -2.927  0.00398 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.02548 on 144 degrees of freedom
+Multiple R-squared:  0.05614,	Adjusted R-squared:  0.04958 
+F-statistic: 8.565 on 1 and 144 DF,  p-value: 0.003985
+

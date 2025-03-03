@@ -1,0 +1,71 @@
+[1] "Sad  in Yougov and  Sad  in Bertweet  Similarity"
+
+t test of coefficients:
+
+               Estimate  Std. Error t value Pr(>|t|)    
+(Intercept) -0.00021925  0.03672222 -0.0060   0.9952    
+X           -0.03162091  0.04828821 -0.6548   0.5134    
+lag(Y, 1)    0.90008030  0.03344230 26.9144   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.2594
+[1] -0.07998648
+[1] "DCCA:"
+[1] 0.7819
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+               Estimate  Std. Error t value Pr(>|t|)    
+(Intercept) -0.00021925  0.03672222 -0.0060   0.9952    
+X           -0.03162091  0.04828821 -0.6548   0.5134    
+lag(Y, 1)    0.90008030  0.03344230 26.9144   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.2594
+[1] "Lagged model:"
+
+t test of coefficients:
+
+               Estimate  Std. Error t value Pr(>|t|)    
+(Intercept) -0.00021925  0.03672222 -0.0060   0.9952    
+X           -0.03162091  0.04828821 -0.6548   0.5134    
+lag(Y, 1)    0.90008030  0.03344230 26.9144   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.067235, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Sad  in Yougov and  Sad  in Bertweet  Similarity .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.06773815
+[1] "scaled: "
+[1] 2.454406
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.076131 -0.014464 -0.003897  0.012130  0.102257 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   0.288325   0.009168  31.450  < 2e-16 ***
+Y           -33.110395  10.418923  -3.178  0.00176 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.02533 on 174 degrees of freedom
+Multiple R-squared:  0.05486,	Adjusted R-squared:  0.04943 
+F-statistic:  10.1 on 1 and 174 DF,  p-value: 0.001756
+

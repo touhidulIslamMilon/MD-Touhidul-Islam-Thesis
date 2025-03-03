@@ -1,0 +1,71 @@
+[1] "Stressed  in Yougov and  Stressed  in Bertweet  Similarity"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0070391  0.0349157 -0.2016   0.8405    
+X            0.0182191  0.0315953  0.5766   0.5650    
+lag(Y, 1)    0.8952587  0.0401989 22.2707   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.735
+[1] -0.08759732
+[1] "DCCA:"
+[1] 0.7951
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0070391  0.0349157 -0.2016   0.8405    
+X            0.0182191  0.0315953  0.5766   0.5650    
+lag(Y, 1)    0.8952587  0.0401989 22.2707   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.735
+[1] "Lagged model:"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0070391  0.0349157 -0.2016   0.8405    
+X            0.0182191  0.0315953  0.5766   0.5650    
+lag(Y, 1)    0.8952587  0.0401989 22.2707   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.13174, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Stressed  in Yougov and  Stressed  in Bertweet  Similarity .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.1661811
+[1] "scaled: "
+[1] 1.856677
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.085799 -0.017811  0.001389  0.020050  0.094792 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.400672   0.008955  44.743   <2e-16 ***
+Y           5.845006   6.946396   0.841    0.401    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.02745 on 162 degrees of freedom
+Multiple R-squared:  0.004352,	Adjusted R-squared:  -0.001794 
+F-statistic: 0.708 on 1 and 162 DF,  p-value: 0.4013
+

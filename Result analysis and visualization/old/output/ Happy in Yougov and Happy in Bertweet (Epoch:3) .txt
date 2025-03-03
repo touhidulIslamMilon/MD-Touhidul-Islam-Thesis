@@ -1,0 +1,71 @@
+[1] "Happy in Yougov and Happy in Bertweet (Epoch:3)"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.016446   0.030288  0.5430   0.5879    
+X           -0.022160   0.031418 -0.7053   0.4816    
+lag(Y, 1)    0.921587   0.034927 26.3859   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.8568
+[1] -0.08821435
+[1] "DCCA:"
+[1] 0.8045
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.016446   0.030288  0.5430   0.5879    
+X           -0.022160   0.031418 -0.7053   0.4816    
+lag(Y, 1)    0.921587   0.034927 26.3859   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.8568
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.016446   0.030288  0.5430   0.5879    
+X           -0.022160   0.031418 -0.7053   0.4816    
+lag(Y, 1)    0.921587   0.034927 26.3859   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.1021, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Happy in Yougov and Happy in Bertweet (Epoch:3) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.1913164
+[1] "scaled: "
+[1] 2.882676
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.186434 -0.028564  0.004588  0.027726  0.113560 
+
+Coefficients:
+               Estimate  Std. Error t value      Pr(>|t|)    
+(Intercept)     0.50855     0.01203  42.260       < 2e-16 ***
+Y           -1219.58636   190.05948  -6.417 0.00000000147 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.04457 on 162 degrees of freedom
+Multiple R-squared:  0.2027,	Adjusted R-squared:  0.1977 
+F-statistic: 41.18 on 1 and 162 DF,  p-value: 0.000000001466
+

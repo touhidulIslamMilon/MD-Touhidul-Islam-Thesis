@@ -1,0 +1,71 @@
+[1] "Happy in Yougov and Happy in Bertweet (Multi_mean Query NoSim Epoch:1)"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.0138515  0.0269699  0.5136   0.6082    
+X           -0.0092264  0.0302336 -0.3052   0.7606    
+lag(Y, 1)    0.9467845  0.0282317 33.5362   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.8492
+[1] -0.05947214
+[1] "DCCA:"
+[1] 0.7297
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.0138515  0.0269699  0.5136   0.6082    
+X           -0.0092264  0.0302336 -0.3052   0.7606    
+lag(Y, 1)    0.9467845  0.0282317 33.5362   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.8492
+[1] "Lagged model:"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.0138515  0.0269699  0.5136   0.6082    
+X           -0.0092264  0.0302336 -0.3052   0.7606    
+lag(Y, 1)    0.9467845  0.0282317 33.5362   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.061809, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Happy in Yougov and Happy in Bertweet (Multi_mean Query NoSim Epoch:1) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.1928718
+[1] "scaled: "
+[1] 2.893255
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.186949 -0.027117  0.004302  0.027285  0.118946 
+
+Coefficients:
+               Estimate  Std. Error t value       Pr(>|t|)    
+(Intercept)     0.50198     0.01047  47.960        < 2e-16 ***
+Y           -1099.64365   165.95497  -6.626 0.000000000448 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.04449 on 168 degrees of freedom
+Multiple R-squared:  0.2072,	Adjusted R-squared:  0.2025 
+F-statistic: 43.91 on 1 and 168 DF,  p-value: 0.0000000004478
+

@@ -1,0 +1,45 @@
+[1] "Bored in Yougov and Bored in Bertweet (single Query Sim Epoch:3)"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0395709  0.0482338 -0.8204   0.4156    
+X            0.0072096  0.0474885  0.1518   0.8799    
+lag(Y, 1)    0.9550679  0.0401058 23.8137   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.1814
+[1] 0.1447847
+[1] "DCCA:"
+[1] 0.1968
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0395709  0.0482338 -0.8204   0.4156    
+X            0.0072096  0.0474885  0.1518   0.8799    
+lag(Y, 1)    0.9550679  0.0401058 23.8137   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.1814
+[1] "Lagged model:"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0395709  0.0482338 -0.8204   0.4156    
+X            0.0072096  0.0474885  0.1518   0.8799    
+lag(Y, 1)    0.9550679  0.0401058 23.8137   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.077799, Truncation lag parameter = 3, p-value = 0.1
+

@@ -1,0 +1,45 @@
+[1] "Sad in Yougov and Sad in Bertweet (single Query Sim Epoch:2)"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.010566   0.061974  0.1705   0.8652    
+X           -0.019467   0.052230 -0.3727   0.7107    
+lag(Y, 1)    0.915387   0.047199 19.3942   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.7535
+[1] 0.1713146
+[1] "DCCA:"
+[1] 0.1855
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.010566   0.061974  0.1705   0.8652    
+X           -0.019467   0.052230 -0.3727   0.7107    
+lag(Y, 1)    0.915387   0.047199 19.3942   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.7535
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.010566   0.061974  0.1705   0.8652    
+X           -0.019467   0.052230 -0.3727   0.7107    
+lag(Y, 1)    0.915387   0.047199 19.3942   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.11149, Truncation lag parameter = 3, p-value = 0.1
+

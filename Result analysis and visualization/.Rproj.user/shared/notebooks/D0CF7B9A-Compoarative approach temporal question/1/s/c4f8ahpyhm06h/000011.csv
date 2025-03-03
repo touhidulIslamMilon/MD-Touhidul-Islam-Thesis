@@ -1,0 +1,5 @@
+"0",""
+"0","model_name = ""Base_model"""
+"0","filename <-""Result/newsimweather_mean.xlsx"""
+"0","Weather_data <- read_excel(filename,sheet=""transpose"")"
+"0",""

@@ -1,0 +1,71 @@
+[1] "Apathetic  in Yougov and  Apathetic  in Bertweet  Similarity"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0013115  0.0432304  0.0303   0.9758    
+X           0.0011998  0.0453488  0.0265   0.9789    
+lag(Y, 1)   0.9038103  0.0502569 17.9838   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.0022
+[1] 0.3131536
+[1] "DCCA:"
+[1] 0.002
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0013115  0.0432304  0.0303   0.9758    
+X           0.0011998  0.0453488  0.0265   0.9789    
+lag(Y, 1)   0.9038103  0.0502569 17.9838   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.0022
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0013115  0.0432304  0.0303   0.9758    
+X           0.0011998  0.0453488  0.0265   0.9789    
+lag(Y, 1)   0.9038103  0.0502569 17.9838   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.042545, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Apathetic  in Yougov and  Apathetic  in Bertweet  Similarity .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.03754308
+[1] "scaled: "
+[1] 2.038949
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.072671 -0.021345 -0.002228  0.017124  0.068159 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   0.194011   0.006318  30.706   <2e-16 ***
+Y           -15.527271  48.800521  -0.318    0.751    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.02622 on 144 degrees of freedom
+Multiple R-squared:  0.0007025,	Adjusted R-squared:  -0.006237 
+F-statistic: 0.1012 on 1 and 144 DF,  p-value: 0.7508
+

@@ -1,0 +1,45 @@
+[1] "Energetic in Yougov and Energetic in Bertweet (Multi_mean Query NoSim Epoch:2)"
+
+t test of coefficients:
+
+             Estimate Std. Error t value  Pr(>|t|)    
+(Intercept)  0.034600   0.060184  0.5749    0.5677    
+X           -0.097979   0.077271 -1.2680    0.2102    
+lag(Y, 1)    0.938744   0.087051 10.7838 4.421e-15 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.6633
+[1] 0.3082688
+[1] "DCCA:"
+[1] 0.0394
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value  Pr(>|t|)    
+(Intercept)  0.034600   0.060184  0.5749    0.5677    
+X           -0.097979   0.077271 -1.2680    0.2102    
+lag(Y, 1)    0.938744   0.087051 10.7838 4.421e-15 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.6633
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value  Pr(>|t|)    
+(Intercept)  0.034600   0.060184  0.5749    0.5677    
+X           -0.097979   0.077271 -1.2680    0.2102    
+lag(Y, 1)    0.938744   0.087051 10.7838 4.421e-15 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.27894, Truncation lag parameter = 3, p-value = 0.1
+

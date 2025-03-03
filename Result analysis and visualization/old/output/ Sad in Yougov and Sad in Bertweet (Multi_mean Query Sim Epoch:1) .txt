@@ -1,0 +1,71 @@
+[1] "Sad in Yougov and Sad in Bertweet (Multi_mean Query Sim Epoch:1)"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0051964  0.0332197  0.1564   0.8759    
+X           0.0254574  0.0316150  0.8052   0.4218    
+lag(Y, 1)   0.9373811  0.0264023 35.5038   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.6749
+[1] -0.04095681
+[1] "DCCA:"
+[1] 0.6524
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0051964  0.0332197  0.1564   0.8759    
+X           0.0254574  0.0316150  0.8052   0.4218    
+lag(Y, 1)   0.9373811  0.0264023 35.5038   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.6749
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0051964  0.0332197  0.1564   0.8759    
+X           0.0254574  0.0316150  0.8052   0.4218    
+lag(Y, 1)   0.9373811  0.0264023 35.5038   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.15501, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Sad in Yougov and Sad in Bertweet (Multi_mean Query Sim Epoch:1) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.06817902
+[1] "scaled: "
+[1] 2.158474
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.069352 -0.017879 -0.001754  0.011295  0.100737 
+
+Coefficients:
+               Estimate  Std. Error t value Pr(>|t|)    
+(Intercept)     0.27047     0.00961  28.144   <2e-16 ***
+Y           -1637.29843  1448.05876  -1.131     0.26    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.02596 on 174 degrees of freedom
+Multiple R-squared:  0.007294,	Adjusted R-squared:  0.001589 
+F-statistic: 1.278 on 1 and 174 DF,  p-value: 0.2597
+

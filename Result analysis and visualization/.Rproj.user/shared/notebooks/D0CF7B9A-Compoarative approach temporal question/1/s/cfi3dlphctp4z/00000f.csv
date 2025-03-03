@@ -1,0 +1,3 @@
+"0","#download.file(""https://yougov.co.uk/_pubapis/v5/uk/trackers/britains-mood-measured-weekly/download/"", destfile=""YouGov/britains-mood-measured-weekly.xlsx"")"
+"0","Yougovdf <- read_excel(""yougovoutput.xlsx"", sheet=""yougovoutput"")"
+"0","names(Yougovdf)[1] <- ""day"""

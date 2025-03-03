@@ -1,0 +1,71 @@
+[1] "Lonely  in Yougov and  Lonely  in Bertweet  Base_model"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.013089   0.044533  0.2939   0.7693    
+X           -0.043637   0.057796 -0.7550   0.4516    
+lag(Y, 1)    0.846635   0.046687 18.1345   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.5309
+[1] -0.04768519
+[1] "DCCA:"
+[1] 0.6817
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.013089   0.044533  0.2939   0.7693    
+X           -0.043637   0.057796 -0.7550   0.4516    
+lag(Y, 1)    0.846635   0.046687 18.1345   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.5309
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.013089   0.044533  0.2939   0.7693    
+X           -0.043637   0.057796 -0.7550   0.4516    
+lag(Y, 1)    0.846635   0.046687 18.1345   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.16732, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Lonely  in Yougov and  Lonely  in Bertweet  Base_model .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.03204006
+[1] "scaled: "
+[1] 2.293139
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.036334 -0.009732 -0.001252  0.010123  0.047108 
+
+Coefficients:
+               Estimate  Std. Error t value Pr(>|t|)    
+(Intercept)    0.191027    0.007196  26.546   <2e-16 ***
+Y           -651.008697  360.696344  -1.805   0.0734 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.01611 on 132 degrees of freedom
+Multiple R-squared:  0.02408,	Adjusted R-squared:  0.01669 
+F-statistic: 3.258 on 1 and 132 DF,  p-value: 0.07338
+

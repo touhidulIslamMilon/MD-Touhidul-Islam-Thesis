@@ -1,0 +1,71 @@
+[1] "Sad in Yougov and Sad in Bertweet (Type: Multi-query mean)"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0155838  0.0182422 -0.8543  0.39416    
+X           -0.0114477  0.0060922 -1.8791  0.06196 .  
+lag(Y, 1)    0.9795537  0.0211967 46.2126  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.8208
+[1] -0.1345804
+[1] "DCCA:"
+[1] 0.9651
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0155838  0.0182422 -0.8543  0.39416    
+X           -0.0114477  0.0060922 -1.8791  0.06196 .  
+lag(Y, 1)    0.9795537  0.0211967 46.2126  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.8208
+[1] "Lagged model:"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0155838  0.0182422 -0.8543  0.39416    
+X           -0.0114477  0.0060922 -1.8791  0.06196 .  
+lag(Y, 1)    0.9795537  0.0211967 46.2126  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.074768, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Sad in Yougov and Sad in Bertweet (Type: Multi-query mean) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.06823811
+[1] "scaled: "
+[1] 2.036062
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.070319 -0.018494 -0.000334  0.010353  0.099508 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.2682     0.0263  10.194   <2e-16 ***
+Y           -490.5043  1565.7405  -0.313    0.754    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.02616 on 171 degrees of freedom
+Multiple R-squared:  0.0005736,	Adjusted R-squared:  -0.005271 
+F-statistic: 0.09814 on 1 and 171 DF,  p-value: 0.7545
+

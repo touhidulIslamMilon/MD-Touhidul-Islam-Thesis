@@ -1,0 +1,71 @@
+[1] "Happy in Yougov and Happy in Bertweet (Multi_mean Query NoSim Epoch:3)"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0063636  0.0306079  0.2079   0.8356    
+X           0.0055453  0.0220434  0.2516   0.8017    
+lag(Y, 1)   0.9782488  0.0209181 46.7656   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.1265
+[1] 0.2435248
+[1] "DCCA:"
+[1] 0.0026
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0063636  0.0306079  0.2079   0.8356    
+X           0.0055453  0.0220434  0.2516   0.8017    
+lag(Y, 1)   0.9782488  0.0209181 46.7656   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.1265
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0063636  0.0306079  0.2079   0.8356    
+X           0.0055453  0.0220434  0.2516   0.8017    
+lag(Y, 1)   0.9782488  0.0209181 46.7656   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.06192, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Happy in Yougov and Happy in Bertweet (Multi_mean Query NoSim Epoch:3) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.1928008
+[1] "scaled: "
+[1] 2.401743
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.185835 -0.027779  0.008724  0.030566  0.172948 
+
+Coefficients:
+              Estimate Std. Error t value        Pr(>|t|)    
+(Intercept)     0.7211     0.1034   6.977 0.0000000000664 ***
+Y           -2032.4413   737.4718  -2.756          0.0065 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.04888 on 168 degrees of freedom
+Multiple R-squared:  0.04325,	Adjusted R-squared:  0.03756 
+F-statistic: 7.595 on 1 and 168 DF,  p-value: 0.006498
+

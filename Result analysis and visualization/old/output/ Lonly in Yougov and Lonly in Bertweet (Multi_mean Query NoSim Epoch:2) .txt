@@ -1,0 +1,45 @@
+[1] "Lonly in Yougov and Lonly in Bertweet (Multi_mean Query NoSim Epoch:2)"
+
+t test of coefficients:
+
+            Estimate Std. Error t value Pr(>|t|)   
+(Intercept) 0.088216   0.131015  0.6733 0.513498   
+X           0.219847   0.138101  1.5919 0.137384   
+lag(Y, 1)   0.730403   0.208854  3.4972 0.004405 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.995
+[1] 0.2222937
+[1] "DCCA:"
+[1] 0.3048
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+            Estimate Std. Error t value Pr(>|t|)   
+(Intercept) 0.088216   0.131015  0.6733 0.513498   
+X           0.219847   0.138101  1.5919 0.137384   
+lag(Y, 1)   0.730403   0.208854  3.4972 0.004405 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.995
+[1] "Lagged model:"
+
+t test of coefficients:
+
+            Estimate Std. Error t value Pr(>|t|)   
+(Intercept) 0.088216   0.131015  0.6733 0.513498   
+X           0.219847   0.138101  1.5919 0.137384   
+lag(Y, 1)   0.730403   0.208854  3.4972 0.004405 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.16863, Truncation lag parameter = 2, p-value = 0.1
+

@@ -1,0 +1,71 @@
+[1] "Sad  in Yougov and  Sad  in Bertweet  Base_model"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0062532  0.0323239  0.1935   0.8468    
+X           0.0236843  0.0337935  0.7009   0.4844    
+lag(Y, 1)   0.9281846  0.0329745 28.1486   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.6044
+[1] -0.06790256
+[1] "DCCA:"
+[1] 0.7403
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0062532  0.0323239  0.1935   0.8468    
+X           0.0236843  0.0337935  0.7009   0.4844    
+lag(Y, 1)   0.9281846  0.0329745 28.1486   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.6044
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0062532  0.0323239  0.1935   0.8468    
+X           0.0236843  0.0337935  0.7009   0.4844    
+lag(Y, 1)   0.9281846  0.0329745 28.1486   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.27727, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Sad  in Yougov and  Sad  in Bertweet  Base_model .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.06836648
+[1] "scaled: "
+[1] 2.387659
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.068781 -0.015787 -0.003749  0.011170  0.105801 
+
+Coefficients:
+               Estimate  Std. Error t value Pr(>|t|)    
+(Intercept)     0.28387     0.00913  31.091  < 2e-16 ***
+Y           -1305.72168   491.23019  -2.658  0.00862 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.02577 on 168 degrees of freedom
+Multiple R-squared:  0.04036,	Adjusted R-squared:  0.03465 
+F-statistic: 7.065 on 1 and 168 DF,  p-value: 0.008618
+

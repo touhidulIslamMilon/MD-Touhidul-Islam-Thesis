@@ -1,0 +1,71 @@
+[1] "Inspired in Yougov and Inspired in Bertweet (single Query NoSim Epoch:1)"
+
+t test of coefficients:
+
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.017709   0.027765  0.6378   0.5246    
+X           0.023936   0.029277  0.8176   0.4149    
+lag(Y, 1)   0.941035   0.027007 34.8442   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.0657
+[1] 0.08343065
+[1] "DCCA:"
+[1] 0.2278
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.017709   0.027765  0.6378   0.5246    
+X           0.023936   0.029277  0.8176   0.4149    
+lag(Y, 1)   0.941035   0.027007 34.8442   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.0657
+[1] "Lagged model:"
+
+t test of coefficients:
+
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.017709   0.027765  0.6378   0.5246    
+X           0.023936   0.029277  0.8176   0.4149    
+lag(Y, 1)   0.941035   0.027007 34.8442   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.063119, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Inspired in Yougov and Inspired in Bertweet (single Query NoSim Epoch:1) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.008061396
+[1] "scaled: "
+[1] 2.532559
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+       Min         1Q     Median         3Q        Max 
+-0.0211688 -0.0074453  0.0006774  0.0065466  0.0261869 
+
+Coefficients:
+                Estimate   Std. Error t value Pr(>|t|)    
+(Intercept)     0.102881     0.004043  25.447  < 2e-16 ***
+Y           -5472.419045  1564.217304  -3.499 0.000616 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.0109 on 150 degrees of freedom
+Multiple R-squared:  0.07544,	Adjusted R-squared:  0.06928 
+F-statistic: 12.24 on 1 and 150 DF,  p-value: 0.000616
+

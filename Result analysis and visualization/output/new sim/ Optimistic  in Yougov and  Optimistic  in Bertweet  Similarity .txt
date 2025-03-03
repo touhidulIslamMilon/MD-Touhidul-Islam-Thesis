@@ -1,0 +1,71 @@
+[1] "Optimistic  in Yougov and  Optimistic  in Bertweet  Similarity"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0156324  0.0327587 -0.4772   0.6340    
+X            0.0064582  0.0358632  0.1801   0.8574    
+lag(Y, 1)    0.9470263  0.0352056 26.8999   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.0358
+[1] 0.04513718
+[1] "DCCA:"
+[1] 0.3444
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0156324  0.0327587 -0.4772   0.6340    
+X            0.0064582  0.0358632  0.1801   0.8574    
+lag(Y, 1)    0.9470263  0.0352056 26.8999   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.0358
+[1] "Lagged model:"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0156324  0.0327587 -0.4772   0.6340    
+X            0.0064582  0.0358632  0.1801   0.8574    
+lag(Y, 1)    0.9470263  0.0352056 26.8999   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.19489, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Optimistic  in Yougov and  Optimistic  in Bertweet  Similarity .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.03783442
+[1] "scaled: "
+[1] 1.465508
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.056260 -0.019993 -0.002899  0.017756  0.076523 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.16502    0.01067  15.470  < 2e-16 ***
+Y            6.48429    2.08114   3.116  0.00225 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.02809 on 132 degrees of freedom
+Multiple R-squared:  0.06851,	Adjusted R-squared:  0.06145 
+F-statistic: 9.708 on 1 and 132 DF,  p-value: 0.002252
+

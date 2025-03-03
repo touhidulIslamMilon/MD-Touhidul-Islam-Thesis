@@ -1,0 +1,71 @@
+[1] "Content in Yougov and Content in Bertweet (Single Query Sim Epoch:2)"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0030743  0.0417986 -0.0736   0.9415    
+X            0.0400133  0.0451400  0.8864   0.3772    
+lag(Y, 1)    0.9112840  0.0378207 24.0948   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.9688
+[1] -0.07586048
+[1] "DCCA:"
+[1] 0.7379
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0030743  0.0417986 -0.0736   0.9415    
+X            0.0400133  0.0451400  0.8864   0.3772    
+lag(Y, 1)    0.9112840  0.0378207 24.0948   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.9688
+[1] "Lagged model:"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.0030743  0.0417986 -0.0736   0.9415    
+X            0.0400133  0.0451400  0.8864   0.3772    
+lag(Y, 1)    0.9112840  0.0378207 24.0948   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.064056, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Content in Yougov and Content in Bertweet (Single Query Sim Epoch:2) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.06515755
+[1] "scaled: "
+[1] 2.362909
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.052262 -0.019276  0.002349  0.020016  0.055946 
+
+Coefficients:
+               Estimate  Std. Error t value Pr(>|t|)    
+(Intercept)     0.29086     0.01741  16.704   <2e-16 ***
+Y           -4753.70074  2227.52115  -2.134   0.0349 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.02498 on 120 degrees of freedom
+Multiple R-squared:  0.03656,	Adjusted R-squared:  0.02854 
+F-statistic: 4.554 on 1 and 120 DF,  p-value: 0.03487
+

@@ -1,0 +1,71 @@
+[1] "Energetic in Yougov and Energetic in Bertweet (Multi_mean Query Sim Epoch:1)"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0010531  0.0514239  0.0205   0.9837    
+X           0.0478715  0.0484880  0.9873   0.3255    
+lag(Y, 1)   0.8921052  0.0454645 19.6220   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.0098
+[1] 0.001909378
+[1] "DCCA:"
+[1] 0.5
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0010531  0.0514239  0.0205   0.9837    
+X           0.0478715  0.0484880  0.9873   0.3255    
+lag(Y, 1)   0.8921052  0.0454645 19.6220   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.0098
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0010531  0.0514239  0.0205   0.9837    
+X           0.0478715  0.0484880  0.9873   0.3255    
+lag(Y, 1)   0.8921052  0.0454645 19.6220   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.054249, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Energetic in Yougov and Energetic in Bertweet (Multi_mean Query Sim Epoch:1) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.01649083
+[1] "scaled: "
+[1] 1.954686
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.037187 -0.017111  0.002618  0.012801  0.033199 
+
+Coefficients:
+               Estimate  Std. Error t value Pr(>|t|)    
+(Intercept)     0.12539     0.01204   10.42   <2e-16 ***
+Y            3204.42011 20061.46960    0.16    0.873    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.01708 on 120 degrees of freedom
+Multiple R-squared:  0.0002126,	Adjusted R-squared:  -0.008119 
+F-statistic: 0.02551 on 1 and 120 DF,  p-value: 0.8734
+

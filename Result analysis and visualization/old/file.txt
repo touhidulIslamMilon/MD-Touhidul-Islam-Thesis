@@ -1,0 +1,17 @@
+[1] "Sad in Yougov and Sad in Bertweet (Multi_mean Query NoSim Epoch:2)"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.0098687  0.0615082  0.1604   0.8731    
+X           -0.0198693  0.0518850 -0.3829   0.7031    
+lag(Y, 1)    0.9157736  0.0469261 19.5152   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.7535
+[1] "DCCA:"
+[1] 0.171345
+[1] "DCCA p-val:"
+[1] 0.1782

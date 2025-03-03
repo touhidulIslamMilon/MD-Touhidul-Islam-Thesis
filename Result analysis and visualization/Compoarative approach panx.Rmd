@@ -1,0 +1,450 @@
+---
+title: Comparative approach of creating time series
+date: 
+author: Md Touhidul Islam
+output: 
+---
+
+```{r, echo=FALSE, message=FALSE, results='hide', cache=T}
+Sys.setlocale("LC_TIME", "en_US.UTF-8")
+
+library(dplyr) #dplyr_1.0.3
+library(ggplot2) #ggplot2_3.3.2
+library(ggpubr) #ggpubr_0.4.0
+library(readxl) #readxl_1.3.1
+library(zoo) #zoo_1.8-8
+library(DCCA) #DCCA_0.1.1 
+library(sandwich) #sandwich_3.0-1
+library(tseries) #tseries_0.10-47
+library(lmtest) #lmtest_0.9-38 
+library(knitr) #knitr_1.30
+library(psych) #psych_2.1.6
+options(scipen = 10)
+
+source("Functions.R")
+R <- 10000
+corrsdf <- NULL
+```
+
+#Import Yougov result from excel sheet
+
+```{r}
+Yougovdf <- read_excel("yougovoutput.xlsx", sheet="yougovoutput")
+names(Yougovdf)[1] <- "day"
+```
+
+#Import Bert trained models
+
+```{r}
+
+epoch<-2
+model_name = " PANAS_X"
+#filename<-getfilename(epoch, query_type,similarity)
+filename <-"Result/newpanx_mean.xlsx"
+berd <- read_excel(filename,sheet="transpose")
+names(berd)[1] <- "day"
+Yougovdf$day <- Yougovdf$day
+
+Yougovdf$day <- as.Date(Yougovdf$day)
+berd$day <- as.Date(berd$day)
+joind = inner_join(Yougovdf, berd, by="day")
+```
+
+##Result for emotion sad
+
+```{r}
+Emotion<-"Sad"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet ",model_name)
+joind$x <- joind$Sad.x
+joind$y <- joind$Sad.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y",  "darkred", "darkblue","Yougov", model_name, title=label, ylab=y_label, ymin=-2.5, ymax=5,label) 
+
+X <- joind$x
+Y <- joind$y
+ct <- cor.test(X,Y)
+corrsdf <- rbind(corrsdf, data.frame(Emotion, cor=ct$estimate, corlow = ct$conf.int[1], corhigh = ct$conf.int[2]))
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+##Result for Happy
+
+```{r}
+Emotion<-"Happy"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet ",model_name)
+joind$x <- joind$Happy.x
+joind$y <- joind$Happy.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y",  "darkred","darkblue", "Yougov", model_name, title=label, ylab=y_label, ymin=-2.5, ymax=5,label) 
+
+X <- joind$x
+Y <- joind$y
+ct <- cor.test(X,Y)
+corrsdf <- rbind(corrsdf, data.frame(Emotion, cor=ct$estimate, corlow = ct$conf.int[1], corhigh = ct$conf.int[2]))
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+##Result for Stressed
+
+```{r}
+Emotion<-"Stressed"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet ",model_name)
+
+joind$x <- joind$Stressed.x
+joind$y <- joind$Stressed.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", model_name, "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,label) 
+
+X <- joind$x
+Y <- joind$y
+ct <- cor.test(X,Y)
+corrsdf <- rbind(corrsdf, data.frame(Emotion, cor=ct$estimate, corlow = ct$conf.int[1], corhigh = ct$conf.int[2]))
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+##Result for Frustrated
+
+```{r}
+Emotion<-"Frustrated"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet ",model_name)
+
+joind$x <- joind$Frustrated.x
+joind$y <- joind$Frustrated.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", model_name, "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,label) 
+
+X <- joind$x
+Y <- joind$y
+ct <- cor.test(X,Y)
+corrsdf <- rbind(corrsdf, data.frame(Emotion, cor=ct$estimate, corlow = ct$conf.int[1], corhigh = ct$conf.int[2]))
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]FrustratedFrustratedFrustrated
+```
+
+##Result for Inspired
+
+```{r}
+Emotion<-"Inspired"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet ",model_name)
+
+joind$x <- joind$Inspired.x
+joind$y <- joind$Inspired.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", model_name, "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,label) 
+
+X <- joind$x
+Y <- joind$y
+ct <- cor.test(X,Y)
+corrsdf <- rbind(corrsdf, data.frame(Emotion, cor=ct$estimate, corlow = ct$conf.int[1], corhigh = ct$conf.int[2]))
+
+results <- analyses(joind, joind, R, label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+##Result for Apathetic
+
+```{r}
+Emotion<-"Apathetic"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet ",model_name)
+
+joind$x <- joind$Apathetic.x
+joind$y <- joind$Apathetic.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", model_name, "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,label)  
+
+X <- joind$x
+Y <- joind$y
+ct <- cor.test(X,Y)
+corrsdf <- rbind(corrsdf, data.frame(Emotion, cor=ct$estimate, corlow = ct$conf.int[1], corhigh = ct$conf.int[2]))
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+##Result for Lonely
+
+```{r}
+Emotion<-"Lonely"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet ",model_name)
+
+joind$x <- joind$Lonely.x
+joind$y <- joind$Lonely.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", model_name, "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,label) 
+
+X <- joind$x
+Y <- joind$y
+ct <- cor.test(X,Y)
+corrsdf <- rbind(corrsdf, data.frame(Emotion, cor=ct$estimate, corlow = ct$conf.int[1], corhigh = ct$conf.int[2]))
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+##Result for Optimistic
+
+```{r}
+Emotion<-"Optimistic"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet ",model_name)
+
+joind$x <- joind$Optimistic.x
+joind$y <- joind$Optimistic.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", model_name, "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,label) 
+
+X <- joind$x
+Y <- joind$y
+ct <- cor.test(X,Y)
+corrsdf <- rbind(corrsdf, data.frame(Emotion, cor=ct$estimate, corlow = ct$conf.int[1], corhigh = ct$conf.int[2]))
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+##Result for Content
+
+```{r}
+Emotion<-"Content"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet ",model_name)
+
+joind$x <- joind$Content.x
+joind$y <- joind$Content.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", model_name, "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,label) 
+
+X <- joind$x
+Y <- joind$y
+ct <- cor.test(X,Y)
+corrsdf <- rbind(corrsdf, data.frame(Emotion, cor=ct$estimate, corlow = ct$conf.int[1], corhigh = ct$conf.int[2]))
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+##Result for Energetic
+
+```{r}
+Emotion<-"Energetic"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet ",model_name)
+
+joind$x <- joind$Energetic.x
+joind$y <- joind$Energetic.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", model_name, "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,y_label) 
+
+X <- joind$x
+Y <- joind$y
+ct <- cor.test(X,Y)
+corrsdf <- rbind(corrsdf, data.frame(Emotion, cor=ct$estimate, corlow = ct$conf.int[1], corhigh = ct$conf.int[2]))
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+##Result for Frustrated
+
+```{r}
+Emotion<-"Frustrated"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet ",model_name)
+
+joind$x <- joind$Frustrated.x
+joind$y <- joind$Frustrated.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", model_name, "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,y_label) 
+
+X <- joind$x
+Y <- joind$y
+ct <- cor.test(X,Y)
+corrsdf <- rbind(corrsdf, data.frame(Emotion, cor=ct$estimate, corlow = ct$conf.int[1], corhigh = ct$conf.int[2]))
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+##Result for Bored
+
+```{r}
+Emotion<-"Bored"
+label <- paste(Emotion," in Yougov and ",Emotion," in Bertweet ",model_name)
+
+joind$x <- joind$Bored.x
+joind$y <- joind$Bored.y
+
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind <- na.omit(joind)
+y_label<-paste("Rescaled ",Emotion)
+plotTS(joind, joind, "x", "y", "darkblue", "darkred", model_name, "Yougov", title=label, ylab=y_label, ymin=-2.5, ymax=5,y_label) 
+
+X <- joind$x
+Y <- joind$y
+ct <- cor.test(X,Y)
+corrsdf <- rbind(corrsdf, data.frame(Emotion, cor=ct$estimate, corlow = ct$conf.int[1], corhigh = ct$conf.int[2]))
+
+results <- analyses(joind, joind, R,label)
+results$emotion  <- Emotion
+results$method <- "Bert"
+results$reweight <- "Yes"
+results <- results[, c(16,17,18, seq(1,15))]
+```
+
+#Compareing results
+
+```{r}
+epoch<-2
+query_type<-"Multi_mean"
+similarity<-"Sim"
+filename<-getfilename(epoch, query_type,similarity)
+filename <-"Result/baseline_same_model.xlsx"
+#berd <- read_excel(filename,sheet="transpose")
+names(berd)[1] <- "day"
+#Yougovdf$day <- as.Date(Yougovdf$day)
+Yougovdf$day <- Yougovdf$day
+joind = inner_join(Yougovdf, berd,by="day")
+
+joind$x <- joind$Sad.x
+
+joind$y <- joind$Sad.y
+```
+
+```{r}
+epoch<-2
+query_type<-"Multi_median"
+similarity<-"NoSim"
+#filename<-getfilename(epoch, query_type,similarity)
+filename <-"Result/baseline_same_model.xlsx"
+berd2 <- read_excel(filename,sheet="transpose")
+names(berd2)[1] <- "day"
+
+
+joind = inner_join(joind, berd2,by="day")
+
+```
+
+```{r}
+joind$z <- joind$Sad
+```
+
+```{r}
+joind$z <- rollmean(joind$z, k=7, align="right", na.pad = T)
+joind$y <- rollmean(joind$y, k=7, align="right", na.pad = T)
+joind$x <- rollmean(joind$x, k=7, align="right", na.pad = T)
+joind$y <- rollmean(joind$y, k=4, align="right", na.pad = T)
+```
+
+```{r}
+plotTS2(joind,joind, "x", "y","z", "red", "blue","gray", "yougov", "Similarity","Normal", title="Sad with similarity and without similarity", ylab="Rescaled Sadness", ymin=-2.5, ymax=5) 
+```
+
+#Total summery
+
+```         
+```
+
+```{r}
+kable(corrsdf)
+library(knitr)
+
+label <- paste("output/",model_name,"correlations_table.html")
+label2 <- paste("output/",model_name,"correlations_table.tex")
+# Create the table
+table_html <- kable(corrsdf, format = "html")
+
+# Save to a file
+writeLines(table_html, label)
+
+table_latex <- kable(corrsdf, format = "latex")
+
+# Save to a .tex file
+writeLines(table_latex, label2)
+```
+
+```{r}
+
+label <- paste("plot/",model_name,"correlations_plot.png")
+corrsdf$emotion <- corrsdf$Emotion
+
+p <- ggplot(corrsdf, aes(x=reorder(emotion, cor), y=cor, fill=as.numeric(reorder(emotion, cor))-6, group=emotion)) + 
+  geom_col(stat="identity", color="black", 
+           position=position_dodge())  +  scale_fill_gradient2(low='blue', mid="purple", high='red') +
+  geom_errorbar(aes(ymin=corlow, ymax=corhigh), width=.2,
+                 position=position_dodge(.9))  + coord_flip() + theme_bw()
+library(ggplot2)
+
+
+# Save as PNG
+ggsave(label, plot = p, width = 8, height = 6, dpi = 300)
+
+```

@@ -1,0 +1,45 @@
+[1] "Lonely in Yougov and Lonely in Bertweet (single Query Sim Epoch:1)"
+
+t test of coefficients:
+
+             Estimate Std. Error t value         Pr(>|t|)    
+(Intercept)  0.056377   0.081698  0.6901           0.4968    
+X           -0.029699   0.070349 -0.4222           0.6767    
+lag(Y, 1)    0.892466   0.075565 11.8105 0.00000000001736 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.9858
+[1] -0.5266773
+[1] "DCCA:"
+[1] 0.9498
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value         Pr(>|t|)    
+(Intercept)  0.056377   0.081698  0.6901           0.4968    
+X           -0.029699   0.070349 -0.4222           0.6767    
+lag(Y, 1)    0.892466   0.075565 11.8105 0.00000000001736 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.9858
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value         Pr(>|t|)    
+(Intercept)  0.056377   0.081698  0.6901           0.4968    
+X           -0.029699   0.070349 -0.4222           0.6767    
+lag(Y, 1)    0.892466   0.075565 11.8105 0.00000000001736 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.11178, Truncation lag parameter = 2, p-value = 0.1
+

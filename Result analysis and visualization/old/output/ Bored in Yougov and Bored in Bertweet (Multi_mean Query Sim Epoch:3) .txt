@@ -1,0 +1,71 @@
+[1] "Bored in Yougov and Bored in Bertweet (Multi_mean Query Sim Epoch:3)"
+
+t test of coefficients:
+
+               Estimate  Std. Error t value Pr(>|t|)    
+(Intercept) -0.01578477  0.02593577 -0.6086   0.5436    
+X            0.00065488  0.01758668  0.0372   0.9703    
+lag(Y, 1)    0.94852073  0.02460138 38.5556   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.2968
+[1] 0.1814449
+[1] "DCCA:"
+[1] 0.027
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+               Estimate  Std. Error t value Pr(>|t|)    
+(Intercept) -0.01578477  0.02593577 -0.6086   0.5436    
+X            0.00065488  0.01758668  0.0372   0.9703    
+lag(Y, 1)    0.94852073  0.02460138 38.5556   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.2968
+[1] "Lagged model:"
+
+t test of coefficients:
+
+               Estimate  Std. Error t value Pr(>|t|)    
+(Intercept) -0.01578477  0.02593577 -0.6086   0.5436    
+X            0.00065488  0.01758668  0.0372   0.9703    
+lag(Y, 1)    0.94852073  0.02460138 38.5556   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.027371, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Bored in Yougov and Bored in Bertweet (Multi_mean Query Sim Epoch:3) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.05860762
+[1] "scaled: "
+[1] 2.569843
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.09675 -0.04589 -0.01410  0.03504  0.16029 
+
+Coefficients:
+               Estimate  Std. Error t value  Pr(>|t|)    
+(Intercept)      0.2704      0.0104  25.997   < 2e-16 ***
+Y           -50239.1869  12462.4764  -4.031 0.0000829 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.06298 on 174 degrees of freedom
+Multiple R-squared:  0.08542,	Adjusted R-squared:  0.08016 
+F-statistic: 16.25 on 1 and 174 DF,  p-value: 0.00008286
+

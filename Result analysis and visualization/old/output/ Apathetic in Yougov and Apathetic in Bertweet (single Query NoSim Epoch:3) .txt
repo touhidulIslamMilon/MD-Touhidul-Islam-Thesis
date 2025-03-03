@@ -1,0 +1,71 @@
+[1] "Apathetic in Yougov and Apathetic in Bertweet (single Query NoSim Epoch:3)"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.00021497 0.04666206  0.0046   0.9963    
+X           0.02014669 0.02644834  0.7617   0.4475    
+lag(Y, 1)   0.84253935 0.07978732 10.5598   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.0937
+[1] 0.05369381
+[1] "DCCA:"
+[1] 0.3137
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.00021497 0.04666206  0.0046   0.9963    
+X           0.02014669 0.02644834  0.7617   0.4475    
+lag(Y, 1)   0.84253935 0.07978732 10.5598   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.0937
+[1] "Lagged model:"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.00021497 0.04666206  0.0046   0.9963    
+X           0.02014669 0.02644834  0.7617   0.4475    
+lag(Y, 1)   0.84253935 0.07978732 10.5598   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.043325, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Apathetic in Yougov and Apathetic in Bertweet (single Query NoSim Epoch:3) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.03758865
+[1] "scaled: "
+[1] 2.30732
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.073714 -0.014441 -0.003803  0.016208  0.066451 
+
+Coefficients:
+               Estimate  Std. Error t value Pr(>|t|)    
+(Intercept)     0.19656     0.00311  63.200   <2e-16 ***
+Y           -1553.22010   790.34915  -1.965   0.0513 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.02588 on 144 degrees of freedom
+Multiple R-squared:  0.02612,	Adjusted R-squared:  0.01936 
+F-statistic: 3.862 on 1 and 144 DF,  p-value: 0.05131
+

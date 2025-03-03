@@ -1,0 +1,69 @@
+[1] "Apathetic in Yougov and Apathetic in Bertweet (Multi_mean Query NoSim Epoch:3)"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.0080442  0.0240754  0.3341   0.7388    
+X           -0.0072516  0.0221490 -0.3274   0.7438    
+lag(Y, 1)    0.9755633  0.0227968 42.7939   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.9159
+[1] 0.1849255
+[1] "DCCA:"
+[1] 0.0295
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.0080442  0.0240754  0.3341   0.7388    
+X           -0.0072516  0.0221490 -0.3274   0.7438    
+lag(Y, 1)    0.9755633  0.0227968 42.7939   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.9159
+[1] "Lagged model:"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.0080442  0.0240754  0.3341   0.7388    
+X           -0.0072516  0.0221490 -0.3274   0.7438    
+lag(Y, 1)    0.9755633  0.0227968 42.7939   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.16818, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Apathetic in Yougov and Apathetic in Bertweet (Multi_mean Query NoSim Epoch:3) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.03755727
+[1] "scaled: "
+[1] 1.891963
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.070392 -0.020846 -0.003341  0.018007  0.067476 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)
+(Intercept)    0.1347     0.1006   1.339    0.183
+Y            679.2910  1190.5371   0.571    0.569
+
+Residual standard error: 0.0262 on 144 degrees of freedom
+Multiple R-squared:  0.002256,	Adjusted R-squared:  -0.004673 
+F-statistic: 0.3256 on 1 and 144 DF,  p-value: 0.5692
+

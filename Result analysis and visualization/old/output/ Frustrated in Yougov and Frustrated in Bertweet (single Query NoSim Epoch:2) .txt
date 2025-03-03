@@ -1,0 +1,71 @@
+[1] "Frustrated in Yougov and Frustrated in Bertweet (single Query NoSim Epoch:2)"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.0015845  0.0585412  0.0271   0.9785    
+X           -0.0607147  0.0659781 -0.9202   0.3594    
+lag(Y, 1)    0.7810168  0.0550549 14.1861   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.8239
+[1] -0.1751715
+[1] "DCCA:"
+[1] 0.9172
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.0015845  0.0585412  0.0271   0.9785    
+X           -0.0607147  0.0659781 -0.9202   0.3594    
+lag(Y, 1)    0.7810168  0.0550549 14.1861   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.8239
+[1] "Lagged model:"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.0015845  0.0585412  0.0271   0.9785    
+X           -0.0607147  0.0659781 -0.9202   0.3594    
+lag(Y, 1)    0.7810168  0.0550549 14.1861   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.061393, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Frustrated in Yougov and Frustrated in Bertweet (single Query NoSim Epoch:2) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.1271899
+[1] "scaled: "
+[1] 2.296447
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.117500 -0.022473 -0.005805  0.022241  0.096038 
+
+Coefficients:
+                Estimate   Std. Error t value Pr(>|t|)    
+(Intercept)      0.38012      0.01535  24.758   <2e-16 ***
+Y           -27505.74619  16078.21438  -1.711   0.0898 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.03821 on 114 degrees of freedom
+Multiple R-squared:  0.02503,	Adjusted R-squared:  0.01648 
+F-statistic: 2.927 on 1 and 114 DF,  p-value: 0.08985
+

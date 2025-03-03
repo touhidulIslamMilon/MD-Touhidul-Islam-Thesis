@@ -1,0 +1,71 @@
+[1] "Happy in Yougov and Happy in Bertweet (Type: Single)"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0034636  0.0321192  0.1078   0.9143    
+X           0.0107315  0.0215201  0.4987   0.6188    
+lag(Y, 1)   0.9816753  0.0209957 46.7561   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] "Corr perm test p-val:"
+[1] 0.1199
+[1] 0.2484907
+[1] "DCCA:"
+[1] 0.0025
+[1] "Prediction correlation"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0034636  0.0321192  0.1078   0.9143    
+X           0.0107315  0.0215201  0.4987   0.6188    
+lag(Y, 1)   0.9816753  0.0209957 46.7561   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[1] 0.1199
+[1] "Lagged model:"
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0034636  0.0321192  0.1078   0.9143    
+X           0.0107315  0.0215201  0.4987   0.6188    
+lag(Y, 1)   0.9816753  0.0209957 46.7561   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+	KPSS Test for Level Stationarity
+
+data:  model$residuals
+KPSS Level = 0.067882, Truncation lag parameter = 4, p-value = 0.1
+
+[1] "output/ Happy in Yougov and Happy in Bertweet (Type: Single) .txt"
+[1] "Mean squire error: "
+[1] "Normal"
+[1] 0.187067
+[1] "scaled: "
+[1] 2.380473
+[1] "R2: "
+
+Call:
+lm(formula = X ~ Y)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.17982 -0.02597  0.01239  0.03276  0.09567 
+
+Coefficients:
+               Estimate  Std. Error t value      Pr(>|t|)    
+(Intercept)     0.67585     0.09936   6.802 0.00000000023 ***
+Y           -1753.14744   708.19355  -2.476        0.0144 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.0466 on 150 degrees of freedom
+Multiple R-squared:  0.03925,	Adjusted R-squared:  0.03285 
+F-statistic: 6.128 on 1 and 150 DF,  p-value: 0.01442
+
